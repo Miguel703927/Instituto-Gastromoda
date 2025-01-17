@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instituto Gastromoda</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="script.js">
+</head>
+<style>
+ *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+               }
+            
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 0.5; /* Eliminado el padding */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0; /* Asegura que esté pegado arriba */
+        }
+
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura fija para el contenedor */
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 60px; /* Ajusta según el tamaño de tu logo */
+    width: auto;
+}
+
+/* Menú Desktop */
+.menu-desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .menu-desktop {
+        display: flex;
+        align-items: center;
+        gap: 3 rem; /* Aumentado el espaciado entre elementos */
+        height: 60px; /* Altura fija para el menú */
+    }
+}
+
+.menu-item {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+    padding: 1rem 0.5rem; /* Añadido padding vertical y horizontal */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    position: relative; /* Para efectos hover si deseas añadirlos después */
+}
+
+.menu-item:hover {
+    color: #FF6B00;
+    
+}
+/* Botón menú móvil */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0rem;
+}
+
+@media (min-width: 1024px) {
+    .menu-button {
+        display: none;
+    }
+}
+
+.menu-button span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: white;
+}
+
+/* Menú móvil */
+.menu-mobile {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 2000;
+    padding: 1.5rem;
+    display: none;
+}
+
+.menu-mobile.active {
+    display: block;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.hero.visible {
+    opacity: 1;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    background-image: url('imagenes/graduacion\ fondo.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 1.5s ease-out, transform 2s ease-out;
+}
+
+.hero.visible .hero-background {
+    opacity: 0.6;
+    transform: scale(1);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 0 1rem;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    transition-delay: 0.5s;
+}
+
+.hero.visible .hero-content {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.instituto-logo {
+    max-width: 90%;
+    height: auto;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.instituto-logo:hover {
+    transform: scale(1);
+}
+
+/* Animación para el efecto de brillo */
+@keyframes shine {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.hero.visible .instituto-logo {
+    animation: shine 3s infinite linear;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh;
+    }
+    
+    .instituto-logo {
+        width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 70vh;
+    }
+    
+    .instituto-logo {
+        width: 95%;
+    }
+}
+/* Info Section */
+.info-section {
+    padding: 4rem 1rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: black;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.info-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition-delay: 0.2s;
+}
+
+.info-section.visible h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info-section p {
+    font-size: 1.125rem;
+    max-width: 48rem;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transition-delay: 0.4s;
+}
+
+.info-section.visible p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efecto de highlight para el texto */
+.info-section.visible p {
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: textShine 3s infinite linear;
+}
+
+@keyframes textShine {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .info-section {
+        padding: 3rem 1rem;
+    }
+
+    .info-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .info-section {
+        padding: 2rem 1rem;
+    }
+
+    .info-section h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .info-section p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+}
+/* Ajuste para el contenido principal */
+main {
+      margin-left: 60px;
+  }
+</style>
+<body>
+    <div class="container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="imagenes/logo.png" alt="Logo Gastromoda" class="logo-image">
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="menu-desktop">
+                    <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                    <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                    <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                    <a href="Diseño Epresarial de Modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                    <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                    <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                    <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+                </div>
+
+                <!-- Botón menú móvil -->
+                <button class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú móvil -->
+        <div class="menu-mobile" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="close-button" id="closeButton">✕</button>
+            </div>
+            <div class="mobile-menu-items">
+                <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                <a href="Diseño Epresarial de Modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <script>
+          document.addEventListener('DOMContentLoaded', () => {
+              const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          entry.target.classList.add('visible');
+                          // Una vez que la animación se ha mostrado, dejamos de observar
+                          observer.unobserve(entry.target);
+                      }
+                  });
+              }, {
+                  threshold: 0.1, // La animación comenzará cuando el 10% del elemento sea visible
+                  rootMargin: '50px' // Comenzará un poco antes de que el elemento sea visible
+              });
+          
+              // Observamos la sección hero
+              const heroSection = document.querySelector('.hero');
+              if (heroSection) {
+                  observer.observe(heroSection);
+              }
+          });
+          </script>
+        <!-- Sección Hero -->
+        <div class="hero">
+          <div class="hero-background">
+              <!-- La imagen de fondo se establece vía CSS -->
+          </div>
+          <div class="hero-content">
+              <img src="imagenes/Recurso 7.png" alt="Instituto Tecnológico Gastromoda" class="instituto-logo" width="70%">
+          </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Una vez que la animación se ha mostrado, dejamos de observar
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1, // La animación comenzará cuando el 10% del elemento sea visible
+                rootMargin: '50px' // Comenzará un poco antes de que el elemento sea visible
+            });
+        
+            // Observamos la sección de información
+            const infoSection = document.querySelector('.info-section');
+            if (infoSection) {
+                observer.observe(infoSection);
+            }
+        });
+        </script>
+        <!-- Sección Info -->
+        <div class="info-section">
+            <h2>¿Qué Ofrecemos?</h2>
+            <p>
+                Gastromoda, una institución que combina lo mejor de dos mundos: 
+                Gastronomía y Diseño Empresarial de Modas. 
+                Sin duda, una combinación única que ofrece una amplia gama de 
+                oportunidades profesionales.
+            </p>
+        </div>
+    </div>
+    <style>
+      .careers-hero {
+          position: relative;
+          height: 50vh;
+          width: 100%;
+          background-color: #000;
+          color: white;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .careers-hero-bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          animation: fadeIn 1.5s ease-out forwards;
+      }
+
+      .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.3);
+          z-index: 1;
+      }
+
+      .careers-hero-content {
+          position: relative;
+          z-index: 2;
+          padding: 2rem;
+      }
+
+      .careers-hero-title {
+          font-size: 3.5rem;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          text-transform: uppercase;
+          opacity: 0;
+          transform: translateY(30px);
+          animation: slideUp 0.8s ease-out forwards;
+          animation-delay: 0.5s;
+      }
+
+      .careers-hero-subtitle {
+          font-size: 1.5rem;
+          text-transform: uppercase;
+          opacity: 0;
+          transform: translateY(30px);
+          animation: slideUp 0.8s ease-out forwards;
+          animation-delay: 1s;
+      }
+
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 0.7;
+          }
+      }
+
+      @keyframes slideUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      .animate-on-scroll {
+          opacity: 0;
+      }
+
+      .animate-active {
+          animation: slideUp 0.8s ease-out forwards;
+      }
+
+      @media (max-width: 768px) {
+          .careers-hero-title {
+              font-size: 2.5rem;
+          }
+          
+          .careers-hero-subtitle {
+              font-size: 1.2rem;
+          }
+      }
+  </style>
+</head>
+<body>
+  <div class="careers-hero">
+      <img class="careers-hero-bg animate-on-scroll" src="imagenes/Recurso 5.png" alt="Background">
+      <div class="overlay"></div>
+      <div class="careers-hero-content">
+          <h1 class="careers-hero-title animate-on-scroll">Carreras Profesionales</h1>
+          <p class="careers-hero-subtitle animate-on-scroll">Inicio de clases febrero 2025</p>
+      </div>
+  </div>
+
+  <script>
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add('animate-active');
+              }
+          });
+      });
+
+      document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+          observer.observe(element);
+      });
+  </script>
+</body> 
+<style>
+    .careers-section {
+        background-color: #000;
+        color: white;
+        padding: 4rem 0;
+    }
+
+    .careers-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    .careers-grid {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        padding: 0 2rem;
+    }
+
+    .career-card {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        height: 450px;
+        width: 350px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    .career-card:nth-child(1) {
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.3s;
+    }
+
+    .career-card:nth-child(2) {
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-delay: 0.6s;
+    }
+
+    .career-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .career-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s ease;
+    }
+
+    .career-overlay:hover {
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    .career-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        color: white;
+    }
+
+    .discover-btn {
+        background: white;
+        color: black;
+        padding: 0.8rem 2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .discover-btn:hover {
+        background: #e0e0e0;
+        transform: scale(1.05);
+    }
+
+    .grayscale {
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+
+    .career-card:hover .grayscale {
+        filter: grayscale(0%);
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .careers-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .career-card {
+            height: 400px;
+            width: 300px;
+        }
+    }
+</style>
+
+<section class="careers-section">
+    <h2 class="careers-title">Carreras a nivel técnico superior</h2>
+    <div class="careers-grid">
+        <div class="career-card">
+            <img src="imagenes/Recurso 9.png" alt="Gastronomía" class="grayscale">
+            <div class="career-overlay">
+                <h3 class="career-title">Gastronomía</h3>
+                <a href="Gastronomia.html" class="discover-btn">Descubre más</a>
+            </div>
+        </div>
+        <div class="career-card">
+            <img src="imagenes/Recurso 88.png" alt="Modas" class="grayscale">
+            <div class="career-overlay">
+                <h3 class="career-title">Modas</h3>
+                <a href="Diseño Epresarial de Modas.html" class="discover-btn">Descubre más</a>
+            </div>
+        </div>
+    </div>
+</section>
+  <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #000;
+        color: white;
+      }
+  
+      .info-sections {
+        background-color: #000;
+        color: white;
+        padding: 2rem 0;
+      }
+  
+      .schedule-section {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2rem 0;
+        background-color: #000;
+      }
+  
+      .schedule-title {
+        display: inline-block;
+        border: 2px solid white;
+        padding: 1rem 2rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+  
+      .schedule-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 0 auto;
+      }
+  
+      .schedule-table th,
+      .schedule-table td {
+        padding: 0.5rem;
+        text-align: center;
+        border: none;
+      }
+  
+      .contacts-section {
+        text-align: center;
+        padding: 2rem 0;
+        background-color: #000;
+      }
+  
+      .contacts-title {
+        display: inline-block;
+        border: 2px solid white;
+        padding: 1rem 2rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+  
+      .contact-info {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+  
+      .carousel-container {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: 2rem 0;
+      }
+  
+      .carousel-track {
+        display: flex;
+        gap: 10px;
+        animation: scroll 25s linear infinite;
+      }
+  
+      .carousel-slide {
+        flex: 0 0 auto;
+        border-radius: 12px;
+      }
+  
+      .carousel-slide img {
+        width: 150px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+  
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+  
+      .carousel-track:hover {
+        animation-play-state: paused;
+      }
+  
+      @media (max-width: 768px) {
+        .schedule-table {
+          font-size: 5rem;
+        }
+        .contact-info {
+          font-size: 1rem;
+          padding: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <section class="info-sections">
+    <div class="carousel-container">
+      <div class="carousel-track">
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 10.png" alt="Diseño de modas">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 11.png" alt="Gastronomía">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 12.png" alt="Desfile">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 13.png" alt="Plato">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 14.png" alt="Vestido">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 15.png" alt="Chef">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 16.png" alt="Diseño">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 17.png" alt="Cocina">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 10.png" alt="Diseño de modas">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 11.png" alt="Gastronomía">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 12.png" alt="Desfile">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 13.png" alt="Plato">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 14.png" alt="Vestido">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 15.png" alt="Chef">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 16.png" alt="Diseño">
+        </div>
+        <div class="carousel-slide">
+          <img src="imagenes/Recurso 17.png" alt="Cocina">
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>.schedule-section {
+    padding: 4rem 1rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: black;
+    color: white;
+}
+
+.schedule-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    border: 1px solid white;
+    text-transform: uppercase;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0 auto;
+}
+
+.schedule-table th,
+.schedule-table td {
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Línea vertical después de la primera columna */
+.schedule-table td:first-child {
+    text-align: left;
+    border-right: 2px solid white;
+}
+
+/* Línea vertical después de la segunda columna */
+.schedule-table td:nth-child(2) {
+    border-right: 2px solid white;
+}
+
+.schedule-table thead th {
+    padding-bottom: 1rem;
+}
+
+/* Ajustes adicionales para mejorar el espaciado */
+.schedule-table tbody tr td {
+    padding: 0.75rem 2rem;
+}</style>
+
+  <section class="schedule-section">
+    <h2 class="schedule-title">NUESTROS HORARIOS DE ATENCIÓN</h2>
+    <table class="schedule-table">
+      <thead>
+        <tr>
+          <th>DIA</th>
+          <th>MAÑANA</th>
+          <th>TARDE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LUNES</td>
+          <td>08:30-12:30</td>
+          <td>14:30-18:30</td>
+        </tr>
+        <tr>
+          <td>MARTES</td>
+          <td>08:30-12:30</td>
+          <td>14:30-18:30</td>
+        </tr>
+        <tr>
+          <td>MIÉRCOLES</td>
+          <td>08:30-12:30</td>
+          <td>14:30-18:30</td>
+        </tr>
+        <tr>
+          <td>JUEVES</td>
+          <td>08:30-12:30</td>
+          <td>14:30-18:30</td>
+        </tr>
+        <tr>
+          <td>VIERNES</td>
+          <td>08:30-12:30</td>
+          <td>14:30-18:30</td>
+        </tr>
+        <tr>
+          <td>SÁBADO</td>
+          <td>08:30-12:30</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="contacts-section">
+    <h2 class="contacts-title">CONTACTOS</h2>
+    <div class="contact-info">
+      <p>Dirección: Sopocachi Calle Méndez Arcos</p>
+      <p>#758 entre el Teleférico Amarillo y plaza España</p>
+      <p>Correo:</p>
+      <p>Teléfono: 69747992</p>
+    </div>
+  </section>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    .info-sections {
+      background-color: #000;
+      color: white;
+      padding: 2rem 0;
+    }
+
+    .schedule-section {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #000;
+    }
+
+    .schedule-title {
+      display: inline-block;
+      border: 2px solid white;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+
+    .schedule-table th,
+    .schedule-table td {
+      padding: 0.5rem;
+      text-align: center;
+      border: none;
+    }
+
+    .contacts-section {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #000;
+    }
+
+    .contacts-title {
+      display: inline-block;
+      border: 2px solid white;
+      padding: 1rem 2rem;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .contact-info {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .carousel-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+      padding: 2rem 0;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 10px;
+      animation: scroll 20s linear infinite;
+    }
+
+    .carousel-slide {
+      flex: 0 0 auto;
+      border-radius: 12px;
+    }
+
+    .carousel-slide img {
+      width: 200px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    @media (max-width: 768px) {
+      .schedule-table {
+        font-size: 0.9rem;
+      }
+      .contact-info {
+        font-size: 1rem;
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<section class="info-sections">
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 10.png" alt="Diseño de modas">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 11.png" alt="Gastronomía">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 12.png" alt="Desfile">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 13.png" alt="Plato">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 14.png" alt="Vestido">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 15.png" alt="Chef">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 16.png" alt="Diseño">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 17.png" alt="Cocina">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 10.png" alt="Diseño de modas">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 11.png" alt="Gastronomía">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 12.png" alt="Desfile">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 13.png" alt="Plato">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 14.png" alt="Vestido">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 15.png" alt="Chef">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 16.png" alt="Diseño">
+      </div>
+      <div class="carousel-slide">
+        <img src="imagenes/Recurso 17.png" alt="Cocina">
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+    /* Estilos para las secciones de ubicaciones */
+    .locations-section {
+        background-color: black;
+        padding: 2rem 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .locations-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .locations-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        border: 1px solid white;
+        padding: 0.5rem 1.5rem;
+        margin: 1rem auto 2rem;
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        display: inline-block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.6s ease 0.2s;
+        color: white;
+    }
+    
+    .section-title.visible {
+        opacity: 1;
+    }
+    
+    .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .location-card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        color: white;
+    }
+    
+    .location-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .location-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        background-color: black;
+    }
+    
+    .location-card img:hover {
+        transform: scale(1.05);
+    }
+    
+    .location-info {
+        text-transform: uppercase;
+        font-size: clamp(0.75rem, 2vw, 0.875rem);
+        line-height: 1.4;
+        text-align: center;
+        padding: 1rem 0;
+        color: white;
+    }
+    
+    .sede-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    /* Divisor entre secciones */
+    .section-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #ffffff50, transparent);
+        margin: 1rem 0;
+        max-width: 100%;
+    }
+    
+    /* Media queries */
+    @media (max-width: 768px) {
+        .schedule-section,
+        .locations-section {
+            padding: 1.5rem 0.5rem;
+        }
+    
+        .locations-grid {
+            gap: 1.5rem;
+        }
+    
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .schedule-section,
+        .locations-section {
+            padding: 1rem 0.25rem;
+        }
+    
+        .locations-grid {
+            gap: 1rem;
+        }
+    
+        .location-card img {
+            border-radius: 8px;
+        }
+    
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.25rem;
+            font-size: 0.8rem;
+        }
+    }
+    </style>
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Para la sección de horarios
+                    if (entry.target.classList.contains('schedule-section')) {
+                        const title = entry.target.querySelector('.schedule-title');
+                        const table = entry.target.querySelector('.schedule-table');
+                        
+                        if (title) title.classList.add('visible');
+                        if (table) table.classList.add('visible');
+                    }
+                    
+                    // Para la sección de contactos
+                    if (entry.target.classList.contains('contacts-section')) {
+                        const title = entry.target.querySelector('.contacts-title');
+                        const info = entry.target.querySelector('.contact-info');
+                        
+                        if (title) title.classList.add('visible');
+                        if (info) info.classList.add('visible');
+                    }
+                    
+                    // Para las secciones de ubicaciones
+                    if (entry.target.classList.contains('locations-section')) {
+                        const title = entry.target.querySelector('.section-title');
+                        const cards = entry.target.querySelectorAll('.location-card');
+                        
+                        if (title) title.classList.add('visible');
+                        
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 200);
+                        });
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+    
+        // Observar todas las secciones
+        document.querySelectorAll('.schedule-section, .contacts-section, .locations-section').forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
+    </head>
+    <body>
+        <!-- Sección de Diseño de Modas -->
+        <section class="locations-section">
+            <div class="locations-container">
+                <div class="section-title">
+                    SEDES DE DISEÑO DE MODAS
+                </div>
+                
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/9LTr1NbuyK4Pfokh8">
+                            <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>LA PAZ</div>
+                            <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                            <div>TELÉFONO: 69743792</div>
+                        </div>
+                    </div>
+    
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/TDyjYvchQaV4zGwZ7">
+                            <img src="imagenes/Recurso 19.png" alt="Mapa Cochabamba">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>COCHABAMBA</div>
+                            <div>AVENIDA LIBERTADOR SIMÓN BOLÍVAR</div>
+                            <div>TELÉFONO: 44528593</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <div class="section-divider"></div>
+    
+        <!-- Sección de Gastronomía -->
+        <section class="locations-section">
+            <div class="locations-container">
+                <div class="section-title">
+                    SEDES DE GASTRONOMÍA
+                </div>
+                
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                            <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>LA PAZ</div>
+                            <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                            <div>TELÉFONO: 69743792</div>
+                        </div>
+                    </div>
+    
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                            <img src="imagenes/Recurso 23.png" alt="Mapa Cochabamba">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>COCHABAMBA</div>
+                            <div>CALLE CHUQUISACA #688</div>
+                            <div>TELÉFONO: 4531043</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="locations-grid" style="margin-top: 2rem;">
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/AVQMGeDqkirRYL6G7">
+                            <img src="imagenes/Recurso 22.png" alt="Mapa Oruro">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>ORURO</div>
+                            <div>CALLE 6 DE OCTUBRE</div>
+                            <div>TELÉFONO: </div>
+                        </div>
+                    </div>
+    
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/qd7VrUZo8CPCoC53A">
+                            <img src="imagenes/Recurso 24.png" alt="Mapa Potosí">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>POTOSI</div>
+                            <div>CALLE Tarija 30, Villa Imperial de Potosí</div>
+                            <div>TELÉFONO: 74289575</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <head>
+        <body>
+            <style>
+                .social-bar {
+                    position: fixed;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    background: white;
+                    padding: 8px;
+                    border-radius: 20px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    z-index: 9999;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .social-icon {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                }
+                
+                .social-icon:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                }
+                
+                .facebook { background: #1877f2; }
+                .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+                .tiktok { background: #000000; }
+                .whatsapp { background: #25D366; }
+                
+                .social-icon i {
+                    font-size: 16px;
+                    color: white;
+                }
+                
+                /* Ocultar la barra social cuando el menú móvil está activo */
+                .menu-mobile.active ~ .social-bar {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                
+                /* Pantallas extra grandes (≥1400px) */
+                @media screen and (min-width: 1400px) {
+                    .social-bar {
+                        right: 30px;
+                        padding: 10px;
+                    }
+                    .social-icon {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    .social-icon i {
+                        font-size: 18px;
+                    }
+                }
+                
+                /* Pantallas grandes (≥1200px) */
+                @media screen and (max-width: 1200px) {
+                    .social-bar {
+                        right: 25px;
+                    }
+                    .social-icon {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+                
+                /* Pantallas medianas (≥992px) */
+                @media screen and (max-width: 992px) {
+                    .social-bar {
+                        right: 20px;
+                        padding: 7px;
+                    }
+                    .social-icon {
+                        width: 32px;
+                        height: 32px;
+                    }
+                    .social-icon i {
+                        font-size: 15px;
+                    }
+                }
+                
+                /* Tablets (≥768px) */
+                @media screen and (max-width: 768px) {
+                    .social-bar {
+                        right: 15px;
+                        padding: 6px;
+                        z-index: 999;
+                    }
+                    .social-icon {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    .social-icon i {
+                        font-size: 14px;
+                    }
+                }
+                
+                /* Móviles grandes (≥576px) */
+                @media screen and (max-width: 576px) {
+                    .social-bar {
+                        right: 10px;
+                        padding: 5px;
+                        gap: 6px;
+                    }
+                    .social-icon {
+                        width: 28px;
+                        height: 28px;
+                    }
+                    .social-icon i {
+                        font-size: 13px;
+                    }
+                }
+                
+                /* Móviles pequeños (<400px) */
+                @media screen and (max-width: 400px) {
+                    .social-bar {
+                        right: 8px;
+                        padding: 4px;
+                        gap: 5px;
+                    }
+                    .social-icon {
+                        width: 26px;
+                        height: 26px;
+                    }
+                    .social-icon i {
+                        font-size: 12px;
+                    }
+                }
+                
+                /* Modo paisaje en móviles o pantallas muy bajas */
+                @media screen and (max-height: 480px) {
+                    .social-bar {
+                        flex-direction: row;
+                        top: auto;
+                        bottom: 15px;
+                        right: 50%;
+                        transform: translateX(50%);
+                        padding: 5px;
+                    }
+                    .social-icon {
+                        width: 28px;
+                        height: 28px;
+                    }
+                }
+                
+                /* Dispositivos muy pequeños en modo paisaje */
+                @media screen and (max-height: 350px) {
+                    .social-bar {
+                        bottom: 10px;
+                        padding: 4px;
+                        gap: 5px;
+                    }
+                    .social-icon {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        </head>
+        <body>
+            <div class="social-bar">
+                <a href="https://www.facebook.com/p/Instituto-Tecnol%C3%B3gico-Superior-en-Gastromoda-61553427907166/" class="social-icon facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/instituto_gastromoda" class="social-icon instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@gastromoda.instit?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.link/pxobem" class="social-icon whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+    </head>
+    </body>
+    
