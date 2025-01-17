@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastronomía-Instituto Gastromoda</title>
+    <style>
+       *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+               }
+            
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 0.5; /* Eliminado el padding */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0; /* Asegura que esté pegado arriba */
+        }
+
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura fija para el contenedor */
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 60px; /* Ajusta según el tamaño de tu logo */
+    width: auto;
+}
+
+/* Menú Desktop */
+.menu-desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .menu-desktop {
+        display: flex;
+        align-items: center;
+        gap: 3 rem; /* Aumentado el espaciado entre elementos */
+        height: 60px; /* Altura fija para el menú */
+    }
+}
+
+.menu-item {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+    padding: 1rem 0.5rem; /* Añadido padding vertical y horizontal */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    position: relative; /* Para efectos hover si deseas añadirlos después */
+}
+
+.menu-item:hover {
+    color: #FF6B00;
+    
+}
+/* Botón menú móvil */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0rem;
+}
+
+@media (min-width: 1024px) {
+    .menu-button {
+        display: none;
+    }
+}
+
+.menu-button span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: white;
+}
+
+/* Menú móvil */
+.menu-mobile {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 2000;
+    padding: 1.5rem;
+    display: none;
+}
+
+.menu-mobile.active {
+    display: block;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .hero-background {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: zoomIn 2.5s ease;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .hero-title-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 80%;
+            max-height: 60%;
+            animation: fadeInTitle 3s ease;
+        }
+        .arrow-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .arrow-image {
+            width: 150px;
+            animation: bounceArrow 2s infinite;
+        }
+        
+        @keyframes bounceArrow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(1.2); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes fadeInTitle {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -30%);
+            }
+            30% { opacity: 0; }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+        /* Previous styles for hero section remain the same */
+        .hero {
+            position: relative;
+            height: 80vh;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .schedule-section {
+            position: relative;
+            width: 100%;
+            padding-top: 60px;
+        }
+
+        .schedule-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .schedule-card {
+            width: 100%;
+            border-radius: 35px;
+            padding: 40px;
+            background-image: url('imagenes/pexels-qaarif-16018410.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .schedule-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .schedule-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 10px;
+        }
+        .info-box {
+            background-color: #F16A37; /* Changed to purple */
+            padding: 12px;
+            border-radius: 15px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .info-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .info-box:not(.horario-box) {
+            min-height: 60px; /* Reduced height to match image */
+        }
+
+        /* Special height for horario box */
+        .info-box.horario-box {
+            min-height: 100px; /* Adjusted to match image */
+        }
+        .info-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .info-title {
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .info-subtitle {
+            color: white;
+            font-size: 0.9rem;
+            margin: 0;
+            text-align: center;
+        }
+        
+        .horario-details {
+            width: 100%;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 4px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+        }
+
+        .horario-row {
+            display: contents;
+        }
+
+        .horario-row span {
+            color: white;
+            padding: 2px 5px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .info-box.folleto {
+    background-color: #FF5722; /* Purple color matching your design */
+    border-radius: 10px;
+    padding: 15px 25px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.info-box.folleto:hover {
+    background-color: #FF5722;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.info-box.folleto a {
+    text-decoration: none;
+    display: block;
+}
+
+.info-box.folleto .info-title {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: none;
+    position: relative;
+}
+
+        @media (max-width: 768px) {
+            .schedule-content {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+            .schedule-card {
+                padding: 20px;
+            }
+
+            .info-box {
+                width: 100%;
+            }
+
+        .arrow-section {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .arrow-image {
+            width: 150px;
+            animation: bounceArrow 2s infinite;
+        }
+        
+        @keyframes bounceArrow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(20px);
+            }
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #0f0f0f;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+.gastronomic-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(10px, 3vw, 20px);
+    box-sizing: border-box;
+}
+
+.career-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+    margin: clamp(2rem, 4vw, 4rem) 0;
+    opacity: 1;
+}
+
+.info-card {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-radius: clamp(15px, 3vw, 30px);
+    box-shadow: 0 15px 30px rgba(255, 87, 34, 0.15);
+    border: 2px solid rgba(255, 87, 34, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card:hover {
+    border-color: #FF5722;
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(255, 87, 34, 0.2);
+}
+
+.info-card h2 {
+    color: #FF5722;
+    font-size: clamp(1.5em, 4vw, 2.5em);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.info-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 50px;
+    height: 4px;
+    background: #FF5722;
+    transition: width 0.5s ease;
+}
+
+.info-card:hover h2::after {
+    width: 100%;
+}
+
+.info-card p {
+    color: #fff;
+    line-height: 1.9;
+    font-size: clamp(1em, 2vw, 1.2em);
+}
+
+.intro {
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.95), rgba(255, 87, 34, 0.8));
+    padding: clamp(2rem, 5vw, 4rem);
+    margin: clamp(2rem, 4vw, 4rem) 0;
+    border-radius: clamp(15px, 3vw, 30px);
+    text-align: center;
+    opacity: 1;
+    box-shadow: 0 15px 30px rgba(255, 87, 34, 0.2);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shine 3s infinite;
+}
+
+.intro h1 {
+    font-size: clamp(2em, 6vw, 4.5em);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: clamp(2px, 1vw, 5px);
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+.intro p {
+    font-size: clamp(1em, 2vw, 1.2em);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 clamp(10px, 2vw, 20px);
+}
+
+.intro h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(60px, 8vw, 100px);
+    height: 4px;
+    background: white;
+}
+
+.fairs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1.5rem, 3vw, 3rem);
+    margin-top: clamp(1.5rem, 3vw, 3rem);
+    opacity: 1;
+    width: 100%;
+}
+
+.fair-card {
+    background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+    border-radius: clamp(15px, 3vw, 30px);
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: all 0.5s ease;
+    position: relative;
+    width: 100%;
+}
+
+.fair-card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 25px 50px rgba(255, 87, 34, 0.2);
+}
+
+.fair-image {
+    width: 100%;
+    height: clamp(200px, 30vw, 300px);
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.fair-content {
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    position: relative;
+    background: linear-gradient(180deg, rgba(26,26,26,0.9) 0%, #1a1a1a 100%);
+}
+
+.fair-title {
+    color: #FF5722;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem);
+    position: relative;
+    padding-left: 20px;
+    word-wrap: break-word;
+}
+
+.fair-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: #FF5722;
+    border-radius: 3px;
+}
+
+.fair-description {
+    color: #fff;
+    line-height: 1.9;
+    font-size: clamp(0.9em, 2vw, 1.1em);
+}
+
+@keyframes shine {
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajustes adicionales para dispositivos muy pequeños */
+@media (max-width: 360px) {
+    .info-card {
+        padding: 1rem;
+    }
+    
+    .fair-content {
+        padding: 1rem;
+    }
+    
+    .intro h1 {
+        font-size: 1.8em;
+    }
+    
+    .fair-title {
+        padding-left: 15px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .career-info {
+        gap: 1.5rem;
+    }
+    
+    .gastronomic-section {
+        padding: 15px;
+    }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1920px) {
+    .gastronomic-section {
+        max-width: 1400px;
+    }
+    
+    .info-card p,
+    .fair-description {
+        font-size: 1.3em;
+    }
+}@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background: #0f0f0f;
+        font-family: 'Poppins', sans-serif;
+        color: white;
+        min-height: 100vh;
+    }
+    
+    .plan-estudios-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    
+    .titulo-principal {
+        text-align: center;
+        margin-bottom: 4rem;
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .titulo-principal h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        color: #FF5722;
+        margin: 0;
+    }
+    
+    .titulo-principal p {
+        font-size: clamp(1.2rem, 2vw, 1.5rem);
+        color: #ffffff;
+        opacity: 0.8;
+    }
+    
+    .anios-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .anio-container {
+        display: flex;
+        gap: 2rem;
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    
+    .anio-container.visible {
+        animation: slideInFromLeft 0.8s ease forwards;
+    }
+    
+    .numero-anio {
+        background: #FF5722;
+        min-width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+    }
+    
+    .materias-container {
+        flex-grow: 1;
+        background: rgba(40, 40, 40, 0.9);
+        border-radius: 15px;
+        padding: 2rem;
+        border: 1px solid rgba(255, 87, 34, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+    
+    .materias-container:hover {
+        transform: translateY(-5px);
+        border-color: #FF5722;
+    }
+    
+    .materia {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .materia:hover {
+        background: rgba(255, 87, 34, 0.1);
+        padding-left: 1.5rem;
+        color: #FF5722;
+    }
+    
+    .materia:last-child {
+        border-bottom: none;
+    }
+    
+    .ventajas-section {
+        margin-top: 5rem;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    .ventajas-section.visible {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .ventajas-titulo {
+        text-align: center;
+        color: #FF5722;
+        font-size: clamp(1.8rem, 3vw, 2.5rem);
+        margin-bottom: 3rem;
+    }
+    
+    .ventajas-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+    
+    .ventaja-item {
+        background: rgba(0, 0, 0, 0.9);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 87, 34, 0.2);
+    }
+    
+    .ventaja-item:hover {
+        transform: translateY(-10px);
+        border-color: #FF5722;
+    }
+    
+    .ventaja-item img {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    
+    .ventaja-item h3 {
+        color: #FF5722;
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes slideInFromLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .anio-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .plan-estudios-container {
+            padding: 1rem;
+        }
+        
+        .numero-anio {
+            margin-bottom: 1rem;
+        }
+    }
+    body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="imagenes/logo.png" alt="Logo Gastromoda" class="logo-image">
+            </div>
+
+            <div class="menu-desktop">
+                <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+            </div>
+
+            <button class="menu-button" id="menuButton">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="menu-mobile" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <button class="close-button" id="closeButton">✕</button>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+            <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+            <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+            <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+            <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+            <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+            <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+        </div>
+    </div>
+
+    <section class="hero">
+        <img src="imagenes/Recurso 41.png" alt="Fondo Cocina" class="hero-background">
+        <div class="hero-overlay"></div>
+        <img src="imagenes/Recurso 42.png" alt="Título Gastronomía" class="hero-title-image">
+    </section>
+</head>
+<body>
+    <div class="schedule-section">
+        <div class="schedule-wrapper">
+            <div class="schedule-card">
+                <div class="schedule-content">
+                    <div class="info-box" style="transition-delay: 0.1s">
+                        <div class="info-title">INICIO</div>
+                        <div class="info-subtitle">FEBRERO 2025</div>
+                    </div>
+
+                    <div class="info-box" style="transition-delay: 0.2s">
+                        <div class="info-title">DURACIÓN</div>
+                        <div class="info-subtitle">3 AÑOS</div>
+                    </div>
+
+                    <div class="info-box" style="transition-delay: 0.3s">
+                        <div class="info-title">MODALIDAD</div>
+                        <div class="info-subtitle">PRESENCIAL</div>
+                    </div>
+
+                    <div class="info-box horario-box" style="transition-delay: 0.4s">
+                        <div class="info-title">HORARIO</div>
+                        <div class="horario-details">
+                            <div class="horario-row">
+                                <span>Mañana:</span>
+                                <span>08:30-12:30</span>
+                            </div>
+                            <div class="horario-row">
+                                <span>Tarde:</span>
+                                <span>14:30-18:30</span>
+                            </div>
+                            <div class="horario-row">
+                                <span>Noche:</span>
+                                <span>18:00-22:00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box" style="transition-delay: 0.5s">
+                        <div class="info-title">SEDE</div>
+                        <div class="info-subtitle">La Paz - Sopocachi</div>
+                    </div>
+
+                    <div class="info-box folleto">
+                        <a href="pdfs/CARRERA DE GASTRONOMIA (1).pdf" download>
+                            <div class="info-title">DESCARGAR FOLLETO</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Previous arrow section and scripts remain the same -->
+    <section class="arrow-section">
+        <img src="imagenes/Recurso 153.png" alt="Flecha hacia abajo" class="arrow-image">
+    </section>
+
+    <script>
+         function downloadPDF() {
+        // Ruta al archivo PDF
+        const pdfUrl ='pdfs/CARRERA DE GASTRONOMIA (1).PDF';
+        
+        // Crear un elemento <a> invisible
+        const link = document.createElement('pdfs/CARRERA DE GASTRONOMIA (1).pdf');
+        link.href = pdfUrl;
+        link.download ='CARRERA DE GASTRONOMIA.PDF'; // Nombre que tendrá el archivo al descargarse
+        // Añadir el elemento al DOM, hacer clic y removerlo
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+        // Previous JavaScript remains the same
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuButton = document.getElementById('menuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeButton = document.getElementById('closeButton');
+
+            if (menuButton && mobileMenu && closeButton) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                });
+
+                closeButton.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            }
+
+            const observerCard = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        const infoBoxes = entry.target.querySelectorAll('.info-box');
+                        infoBoxes.forEach(box => {
+                            box.classList.add('visible');
+                        });
+                    }
+                });
+            }, { 
+                threshold: 0.1
+            });
+
+            const scheduleCard = document.querySelector('.schedule-card');
+            if (scheduleCard) {
+                observerCard.observe(scheduleCard);
+            }
+        });
+
+        function downloadPDF() {
+            alert('Descargando folleto...');
+        }
+    </script>
+</body>
+</head>
+<body>
+<div class="gastronomic-section">
+    <div class="career-info">
+        <div class="info-card">
+            <h2>¿Qué es la carrera de Gastronomía?</h2>
+            <p>La gastronomía es la ciencia y el arte de preparar alimentos y bebidas. Un gastrónomo no solo cocina, sino que estudia la historia de la comida, las culturas culinarias, la nutrición, la gestión de restaurantes y mucho más. Es decir, es una carrera que combina la creatividad, la técnica y el conocimiento científico.</p>
+        </div>
+        <div class="info-card">
+            <h2>¿Por qué estudiar Gastronomía?</h2>
+            <p>Desarrolla tu creatividad: Sé un artista en la cocina, creando platos únicos. Trabaja en un ambiente dinámico: Disfruta de un entorno lleno de pasión y sabor. Abre enormes oportunidades: Amplias oportunidades en restaurantes, hoteles y más. Desarrolla habilidades de gestión: Organiza eventos y equipos de trabajo.</p>
+        </div>
+    </div>
+
+    <div class="intro">
+        <h1>FERIAS GASTRONÓMICAS</h1>
+        <p>Un laboratorio culinario donde los estudiantes ponen a prueba sus conocimientos y habilidades.</p>
+    </div>
+
+    <div class="fairs-grid">
+        <div class="fair-card">
+            <img src="imagenes/Recurso 230_1.png" alt="Feria Paceña" class="fair-image">
+            <div class="fair-content">
+                <h2 class="fair-title">Feria de la Gastronomía Paceña</h2>
+                <p class="fair-description">Los estudiantes de gastronomía presentaron platos tradicionales del Departamento de La Paz, mostrando la variedad de platillos culinarios.</p>
+            </div>
+        </div>
+
+        <div class="fair-card">
+            <img src="imagenes/Recurso 231_1.png" alt="Feria Boliviana" class="fair-image">
+            <div class="fair-content">
+                <h2 class="fair-title">Feria de la Gastronomía Boliviana</h2>
+                <p class="fair-description">Los estudiantes prepararon platillos tradicionales de tres departamentos, mostrando la diversidad de cada región de Bolivia.</p>
+            </div>
+        </div>
+
+        <div class="fair-card">
+            <img src="imagenes/Recurso 232_1.png" alt="Feria Cochabambina" class="fair-image">
+            <div class="fair-content">
+                <h2 class="fair-title">Feria Gastronómica Cochabambina</h2>
+                <p class="fair-description">Los estudiantes de gastronomía prepararon platillos representativos de Cochabamba y los presentaron en la Cámara de Diputados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.bottom >= 0
+        );
+    }
+
+    function handleScroll() {
+        const sections = document.querySelectorAll('.career-info, .intro, .fairs-grid');
+        sections.forEach(section => {
+            if (isInViewport(section) && !section.classList.contains('visible')) {
+                section.classList.add('visible');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+</script>
+<head>
+</body>
+    <div class="plan-estudios-container">
+        <div class="titulo-principal">
+            <h1>PLAN DE ESTUDIOS</h1>
+            <p>(ANUAL)</p>
+        </div>
+    
+        <div class="anios-wrapper">
+            <div class="anio-container">
+                <div class="numero-anio">1</div>
+                <div class="materias-container">
+                    <div class="materia">INOCUIDAD ALIMENTARIA, SEGURIDAD OCUPACIONAL Y MEDIO AMBIENTE</div>
+                    <div class="materia">INGLÉS</div>
+                    <div class="materia">TÉCNICAS CULINARIAS E HISTORIA DE LA GASTRONOMÍA</div>
+                    <div class="materia">PROCEDIMIENTOS BÁSICOS DE REPOSTERÍA, PASTELERÍA Y PANADERÍA</div>
+                    <div class="materia">INFORMÁTICA APLICADA A LA GASTRONOMÍA</div>
+                    <div class="materia">NUTRICIÓN Y DIETÉTICA</div>
+                    <div class="materia">ORGANIZACIÓN Y GESTIÓN DE ALIMENTOS Y BEBIDAS</div>
+                    <div class="materia">SERVICIO DE COMEDOR, ETIQUETA Y PROTOCOLO</div>
+                </div>
+            </div>
+    
+            <div class="anio-container">
+                <div class="numero-anio">2</div>
+                <div class="materias-container">
+                    <div class="materia">FRANCÉS TÉCNICO</div>
+                    <div class="materia">GASTRONOMÍA NACIONAL</div>
+                    <div class="materia">REPOSTERÍA Y PASTELERÍA</div>
+                    <div class="materia">GASTRONOMÍA INTERNACIONAL</div>
+                    <div class="materia">PANADERÍA</div>
+                    <div class="materia">EMPRENDIMIENTO PRODUCTIVO</div>
+                </div>
+            </div>
+    
+            <div class="anio-container">
+                <div class="numero-anio">3</div>
+                <div class="materias-container">
+                    <div class="materia">COCINA CREATIVA</div>
+                    <div class="materia">BAR Y COCTELERÍA</div>
+                    <div class="materia">ENOLOGÍA Y MARIDAJE</div>
+                    <div class="materia">EVENTOS, BANQUETES Y GARNISH</div>
+                    <div class="materia">MARKETING GASTRONÓMICO</div>
+                    <div class="materia">INDUSTRIA Y ESPECIALIDADES GASTRONÓMICAS</div>
+                    <div class="materia">TALLER DE MODALIDAD DE GRADUACIÓN</div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="ventajas-section">
+            <h2 class="ventajas-titulo">VENTAJAS DE ESTUDIAR CON NOSOTROS GASTRONOMÍA</h2>
+            <div class="ventajas-grid">
+                <div class="ventaja-item">
+                    <img src="imagenes/Recurso 59.png" alt="Horarios">
+                    <h3>HORARIOS A ELECCIÓN</h3>
+                </div>
+                <div class="ventaja-item">
+                    <img src="imagenes/Recurso 60.png" alt="Experiencia">
+                    <h3>GRADUATE CON EXPERIENCIA</h3>
+                </div>
+                <div class="ventaja-item">
+                    <img src="imagenes/Recurso 61.png" alt="Título">
+                    <h3>TÍTULO EN PROVISIÓN NACIONAL</h3>
+                </div>
+                <div class="ventaja-item">
+                    <img src="imagenes/Recurso 62.png" alt="Duración">
+                    <h3>TITULACIÓN EN 3 AÑOS</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hacer visible el título principal inmediatamente
+        document.querySelector('.titulo-principal').style.opacity = '1';
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '50px'
+        });
+    
+        // Observar los contenedores de años
+        document.querySelectorAll('.anio-container').forEach(el => {
+            observer.observe(el);
+        });
+    
+        // Observar la sección de ventajas
+        observer.observe(document.querySelector('.ventajas-section'));
+    });
+    </script>
+    </head>
+    </body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            min-height: 100vh;
+        }
+        /* Estilos base compartidos */
+        .section-base {
+            background-color: black;
+            color: white;
+            margin: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .section-base.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Estilos para la sección de horarios */
+        .schedule-section {
+            padding: 2rem 1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .schedule-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border: 1px solid white;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+        
+        .schedule-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+        }
+        
+        .schedule-table.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+        
+        .schedule-table th {
+            text-align: center;
+        }
+        
+        .schedule-table td:first-child {
+            text-align: center;
+            border-right: 2px solid white;
+        }
+        
+        .schedule-table td:nth-child(2) {
+            border-right: 2px solid white;
+        }
+        
+        /* Estilos para la sección de contactos */
+        .contacts-section {
+            background-color: black;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .contacts-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contacts-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border: 1px solid white;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+        
+        .contacts-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-info {
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+        }
+        
+        .contact-info.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Estilos para las secciones de ubicaciones */
+        .locations-section {
+            background-color: black;
+            padding: 2rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .locations-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .locations-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            border: 1px solid white;
+            padding: 0.5rem 1.5rem;
+            margin: 1rem auto 2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.2s;
+            color: white;
+        }
+        
+        .section-title.visible {
+            opacity: 1;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .location-card {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            color: white;
+        }
+        
+        .location-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .location-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            background-color: black;
+        }
+        
+        .location-card img:hover {
+            transform: scale(1.05);
+        }
+        
+        .location-info {
+            text-transform: uppercase;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            line-height: 1.4;
+            text-align: center;
+            padding: 1rem 0;
+            color: white;
+        }
+        
+        .sede-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* Divisor entre secciones */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ffffff50, transparent);
+            margin: 1rem 0;
+            max-width: 100%;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            .schedule-section,
+            .locations-section {
+                padding: 1.5rem 0.5rem;
+            }
+        
+            .locations-grid {
+                gap: 1.5rem;
+            }
+        
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .schedule-section,
+            .locations-section {
+                padding: 1rem 0.25rem;
+            }
+        
+            .locations-grid {
+                gap: 1rem;
+            }
+        
+            .location-card img {
+                border-radius: 8px;
+            }
+        
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.25rem;
+                font-size: 0.8rem;
+            }
+        }
+        </style>
+        
+        <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Para la sección de horarios
+                        if (entry.target.classList.contains('schedule-section')) {
+                            const title = entry.target.querySelector('.schedule-title');
+                            const table = entry.target.querySelector('.schedule-table');
+                            
+                            if (title) title.classList.add('visible');
+                            if (table) table.classList.add('visible');
+                        }
+                        
+                        // Para la sección de contactos
+                        if (entry.target.classList.contains('contacts-section')) {
+                            const title = entry.target.querySelector('.contacts-title');
+                            const info = entry.target.querySelector('.contact-info');
+                            
+                            if (title) title.classList.add('visible');
+                            if (info) info.classList.add('visible');
+                        }
+                        
+                        // Para las secciones de ubicaciones
+                        if (entry.target.classList.contains('locations-section')) {
+                            const title = entry.target.querySelector('.section-title');
+                            const cards = entry.target.querySelectorAll('.location-card');
+                            
+                            if (title) title.classList.add('visible');
+                            
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('visible');
+                                }, index * 200);
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+        
+            // Observar todas las secciones
+            document.querySelectorAll('.schedule-section, .contacts-section, .locations-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+        </script>
+        </head>
+        <body>
+            <section class="schedule-section">
+                <h2 class="schedule-title">NUESTROS HORARIOS DE ATENCIÓN</h2>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>DIA</th>
+                            <th>MAÑANA</th>
+                            <th>TARDE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LUNES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>MARTES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>MIÉRCOLES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>JUEVES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>VIERNES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>SÁBADO</td>
+                            <td>08:30-12:30</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        
+            <section class="contacts-section">
+                <h2 class="contacts-title">CONTACTOS</h2>
+                <div class="contact-info">
+                    <p>Dirección: Sopocachi Calle Méndez Arcos</p>
+                    <p>#758 entre el Teleférico Amarillo y plaza España</p>
+                    <p>Correo:</p>
+                    <p>Teléfono: 69747992</p>
+                </div>
+            </section>
+        
+            <!-- Sección de Diseño de Modas -->
+            <section class="locations-section">
+                <div class="locations-container">
+                    <div class="section-title">
+                        SEDES DE DISEÑO DE MODAS
+                    </div>
+                    
+                    <div class="locations-grid">
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/9LTr1NbuyK4Pfokh8">
+                                <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>LA PAZ</div>
+                                <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                                <div>TELÉFONO: 69743792</div>
+                            </div>
+                        </div>
+        
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/TDyjYvchQaV4zGwZ7">
+                                <img src="imagenes/Recurso 19.png" alt="Mapa Cochabamba">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>COCHABAMBA</div>
+                                <div>AVENIDA LIBERTADOR SIMÓN BOLÍVAR</div>
+                                <div>TELÉFONO: 44528593</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <div class="section-divider"></div>
+        
+            <!-- Sección de Gastronomía -->
+            <section class="locations-section">
+                <div class="locations-container">
+                    <div class="section-title">
+                        SEDES DE GASTRONOMÍA
+                    </div>
+                    
+                    <div class="locations-grid">
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                                <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>LA PAZ</div>
+                                <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                                <div>TELÉFONO: 69743792</div>
+                            </div>
+                        </div>
+        
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                                <img src="imagenes/Recurso 23.png" alt="Mapa Cochabamba">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>COCHABAMBA</div>
+                                <div>CALLE CHUQUISACA #688</div>
+                                <div>TELÉFONO: 4531043</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locations-grid" style="margin-top: 2rem;">
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/AVQMGeDqkirRYL6G7">
+                                <img src="imagenes/Recurso 22.png" alt="Mapa Oruro">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>ORURO</div>
+                                <div>CALLE 6 DE OCTUBRE</div>
+                                <div>TELÉFONO: </div>
+                            </div>
+                        </div>
+        
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/qd7VrUZo8CPCoC53A">
+                                <img src="imagenes/Recurso 24.png" alt="Mapa Potosí">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>POTOSI</div>
+                                <div>CALLE Tarija 30, Villa Imperial de Potosí</div>
+                                <div>TELÉFONO: 74289575</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </body>
+        <body>
+            <style>
+                .social-bar {
+                    position: fixed;
+                    right: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    background: white;
+                    padding: 8px;
+                    border-radius: 20px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                    z-index: 9999;
+                    transition: opacity 0.3s ease;
+                }
+                
+                .social-icon {
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                }
+                
+                .social-icon:hover {
+                    transform: scale(1.1);
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                }
+                
+                .facebook { background: #1877f2; }
+                .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+                .tiktok { background: #000000; }
+                .whatsapp { background: #25D366; }
+                
+                .social-icon i {
+                    font-size: 16px;
+                    color: white;
+                }
+                
+                /* Ocultar la barra social cuando el menú móvil está activo */
+                .menu-mobile.active ~ .social-bar {
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                
+                /* Pantallas extra grandes (≥1400px) */
+                @media screen and (min-width: 1400px) {
+                    .social-bar {
+                        right: 30px;
+                        padding: 10px;
+                    }
+                    .social-icon {
+                        width: 40px;
+                        height: 40px;
+                    }
+                    .social-icon i {
+                        font-size: 18px;
+                    }
+                }
+                
+                /* Pantallas grandes (≥1200px) */
+                @media screen and (max-width: 1200px) {
+                    .social-bar {
+                        right: 25px;
+                    }
+                    .social-icon {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+                
+                /* Pantallas medianas (≥992px) */
+                @media screen and (max-width: 992px) {
+                    .social-bar {
+                        right: 20px;
+                        padding: 7px;
+                    }
+                    .social-icon {
+                        width: 32px;
+                        height: 32px;
+                    }
+                    .social-icon i {
+                        font-size: 15px;
+                    }
+                }
+                
+                /* Tablets (≥768px) */
+                @media screen and (max-width: 768px) {
+                    .social-bar {
+                        right: 15px;
+                        padding: 6px;
+                        z-index: 999;
+                    }
+                    .social-icon {
+                        width: 30px;
+                        height: 30px;
+                    }
+                    .social-icon i {
+                        font-size: 14px;
+                    }
+                }
+                
+                /* Móviles grandes (≥576px) */
+                @media screen and (max-width: 576px) {
+                    .social-bar {
+                        right: 10px;
+                        padding: 5px;
+                        gap: 6px;
+                    }
+                    .social-icon {
+                        width: 28px;
+                        height: 28px;
+                    }
+                    .social-icon i {
+                        font-size: 13px;
+                    }
+                }
+                
+                /* Móviles pequeños (<400px) */
+                @media screen and (max-width: 400px) {
+                    .social-bar {
+                        right: 8px;
+                        padding: 4px;
+                        gap: 5px;
+                    }
+                    .social-icon {
+                        width: 26px;
+                        height: 26px;
+                    }
+                    .social-icon i {
+                        font-size: 12px;
+                    }
+                }
+                
+                /* Modo paisaje en móviles o pantallas muy bajas */
+                @media screen and (max-height: 480px) {
+                    .social-bar {
+                        flex-direction: row;
+                        top: auto;
+                        bottom: 15px;
+                        right: 50%;
+                        transform: translateX(50%);
+                        padding: 5px;
+                    }
+                    .social-icon {
+                        width: 28px;
+                        height: 28px;
+                    }
+                }
+                
+                /* Dispositivos muy pequeños en modo paisaje */
+                @media screen and (max-height: 350px) {
+                    .social-bar {
+                        bottom: 10px;
+                        padding: 4px;
+                        gap: 5px;
+                    }
+                    .social-icon {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+                </style>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        </head>
+        <body>
+            <div class="social-bar">
+                <a href="https://www.facebook.com/p/Instituto-Tecnol%C3%B3gico-Superior-en-Gastromoda-61553427907166/" class="social-icon facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/instituto_gastromoda" class="social-icon instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.tiktok.com/@gastromoda.instit?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://wa.link/pxobem" class="social-icon whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </html>
+    
+    

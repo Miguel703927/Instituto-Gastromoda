@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>  Talleres Especiales-Instituto GastroModa</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(-100%);
+            transition: all 1s;
+        }
+
+        .hidden-right {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateX(100%);
+            transition: all 1s;
+        }
+
+        .hidden-bottom {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateY(100%);
+            transition: all 1s;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateX(0);
+        }
+        /* Navbar Styles */
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 0.5; /* Eliminado el padding */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0; /* Asegura que esté pegado arriba */
+        }
+
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px; /* Altura fija para el contenedor */
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 60px; /* Ajusta según el tamaño de tu logo */
+    width: auto;
+}
+
+/* Menú Desktop */
+.menu-desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .menu-desktop {
+        display: flex;
+        align-items: center;
+        gap: 3 rem; /* Aumentado el espaciado entre elementos */
+        height: 60px; /* Altura fija para el menú */
+    }
+}
+
+.menu-item {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+    padding: 1rem 0.5rem; /* Añadido padding vertical y horizontal */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    position: relative; /* Para efectos hover si deseas añadirlos después */
+}
+
+.menu-item:hover {
+    color: #FF6B00;
+    
+}
+/* Botón menú móvil */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0rem;
+}
+
+@media (min-width: 1024px) {
+    .menu-button {
+        display: none;
+    }
+}
+
+.menu-button span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: white;
+}
+
+/* Menú móvil */
+.menu-mobile {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 2000;
+    padding: 1.5rem;
+    display: none;
+}
+
+.menu-mobile.active {
+    display: block;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('IMAGENES/Recurso\ 56.png') center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 2rem;
+        }
+
+        /* Info Section */
+        .info-section {
+            background: #000000;
+            color: white;
+            padding: 4rem 2rem;
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .info-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .info-header h2 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .info-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-image {
+            /* Eliminamos width y height fijos */
+            width: 20%;
+            max-width: 100%; /* Para que la imagen sea responsive */
+            height: auto; /* Mantiene la proporción original */
+            margin: 0 auto 1rem auto;
+            display: block; /* Para centrar la imagen */
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 2rem;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #ff4f4f;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+        .workshops-text {
+    color: white;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    border: 2px solid white;
+    display: inline-block;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.workshops-text:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.future-workshops-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.workshop-image-section {
+    position: relative;
+    min-height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(45deg, #F16A37, #ff8657);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.coming-soon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.workshop-info-section {
+    color: white;
+    padding: 2rem;
+    background: rgba(241, 106, 55, 0.2);
+    border-radius: 15px;
+    border: 1px solid rgba(241, 106, 55, 0.3);
+}
+
+.info-label {
+    color: #F16A37;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.info-content {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .future-workshops-container {
+        grid-template-columns: 1fr;
+    }
+}
+        .workshops-text {
+            color: white;
+            font-size: 1.2rem;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        @keyframes arrowBounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+            100% { transform: translateY(0); }
+        }
+
+        .arrow-down {
+            width: 110px;
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+            animation: arrowBounce 1.5s infinite ease-in-out;
+        }
+
+        .arrow-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="imagenes/logo.png" alt="Logo Gastromoda" class="logo-image">
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="menu-desktop">
+                    <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                    <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                    <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                    <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                    <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                    <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                    <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+                </div>
+
+                <!-- Botón menú móvil -->
+                <button class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú móvil -->
+        <div class="menu-mobile" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="close-button" id="closeButton">✕</button>
+            </div>
+            <div class="mobile-menu-items">
+                <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+            </div>
+        </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">TALLERES ESPECIALES</h1>
+            <p class="animate__animated animate__fadeInUp">Descubre el arte de la gastronomía</p>
+        </div>
+    </section>
+</head>
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="info-container">
+            <div class="info-header hidden-bottom">
+                <h2>TALLERES ESPECIALES CORTOS</h2>
+                <p>ESTOS TALLERES TIENEN UNA DURACIÓN DE UN DÍA O DOS COMO MÁXIMO, CURSOS CORTOS 100% PRÁCTICOS EL INSCRITO VENDRÁ A REALIZAR LA PREPARACIÓN ASESORADO POR EL CHEF.</p>
+            </div>
+            <div class="info-features">
+                <div class="feature-card hidden">
+                    <img src="imagenes/Recurso 59.png" alt="Clases prácticas" class="feature-image">
+                    <h3>CLASES DE CORTA DURACIÓN</h3>
+                    <p>Aprende haciendo con nuestros expertos chefs</p>
+                </div>
+                
+                <div class="feature-card hidden-right">
+                    <img src="IMAGENES/Recurso 61.png" alt="Certificación" class="feature-image">
+                    <h3>CERTIFICACIÓN AL FINALIZAR EL CURSO</h3>
+                    <p>Obtén un certificado oficial al completar tu formación</p>
+                </div>
+            </div>
+            <br>
+            <div style="text-align: center;" class="hidden-bottom">
+                <div class="workshops-text">Talleres Futuros</div>
+            </div>
+            
+            <div class="future-workshops-container">
+                <!-- Sección de la imagen -->
+                <div class="workshop-image-section">
+                    <div class="coming-soon-overlay">Próximamente</div>
+                </div>
+                
+                <!-- Sección de información -->
+                <div class="workshop-info-section">
+                    <div class="info-label">Nombre del Curso</div>
+                    <div class="info-content">Próximamente</div>
+                    
+                    <div class="info-label">Descripción</div>
+                    <div class="info-content">Estamos preparando una nueva experiencia de aprendizaje para ti. ¡Mantente atento!</div>
+                    
+                    <div class="info-label">Horarios</div>
+                    <div class="info-content">Por definir</div>
+                    
+                    <div class="info-label">Duración</div>
+                    <div class="info-content">Por definir</div>
+                    
+                    <div class="info-label">Modalidad</div>
+                    <div class="info-content">Por definir</div>
+                    
+                    <div class="info-label">Inversión</div>
+                    <div class="info-content">Por definir</div>
+                </div>
+            </div>
+            <br>
+            <div style="text-align: center;" class="hidden-bottom">
+                <div class="workshops-text">Ver Talleres Anteriores</div>
+                <div class="arrow-container">
+                    <img src="imagenes/Recurso 153.png" alt="Flecha abajo" class="arrow-down">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(0, 0, 0, 0.95)';
+                navbar.style.padding = '0.5rem 1rem';
+            } else {
+                navbar.style.background = 'rgba(0, 0, 0, 0.9)';
+                navbar.style.padding = '1rem';
+            }
+        });
+
+        // Intersection Observer para animaciones de scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        });
+
+        // Observar todos los elementos con clases hidden
+        const hiddenElements = document.querySelectorAll('.hidden, .hidden-right, .hidden-bottom');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+    <script src="script.js"></script>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .courses-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: transparent;
+        }
+
+        .course-card {
+            position: relative;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.3s ease;
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            background: #ff6b00;
+            padding: 0;
+        }
+
+        .course-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 107, 0, 0.3);
+        }
+
+        .course-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border-radius: 15px 15px 0 0;
+            min-height: 200px;
+        }
+
+        .course-title {
+            color: white;
+            font-size: 24px;
+            margin: 0;
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #ff6b00;
+        }
+
+        /* Ajuste para animación secuencial */
+        .course-card:nth-child(1) { transition-delay: 0s; }
+        .course-card:nth-child(2) { transition-delay: 0.1s; }
+        .course-card:nth-child(3) { transition-delay: 0.2s; }
+        .course-card:nth-child(4) { transition-delay: 0.3s; }
+
+        @media (max-width: 768px) {
+            .courses-container {
+                padding: 12px;
+            }
+            .course-title {
+                font-size: 20px;
+            }
+            .course-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>               
+    <div class="courses-container">
+        <div class="course-card">
+            <img src="imagenes/Recurso 233_2.png" alt="Curso de Tortas" class="course-image">
+            <h3 class="course-title">Curso de Tortas Comerciales</h3>
+        </div>
+        <div class="course-card">
+            <img src="imagenes/Recurso 310.png" alt="Junior Chef" class="course-image">
+            <h3 class="course-title">Curso Vacacional Junior Chef</h3>
+        </div>
+        <div class="course-card">
+            <img src="imagenes/Recurso 236.png" alt="Cocina Rápida" class="course-image">
+            <h3 class="course-title">Cocina Rápida</h3>
+        </div>
+        <div class="course-card">
+            <img src="imagenes/Recurso 234.png" alt="Junior Chef Navideño" class="course-image">
+            <h3 class="course-title">Junior Chef Navideño</h3>
+        </div>
+    </div>
+
+    <script>
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+            // Ajustado para activar cuando el elemento está a 80% visible en la ventana
+            return rect.top <= windowHeight * 0.8;
+        }
+
+        function animateCards() {
+            const container = document.querySelector('.courses-container');
+            if (isElementInViewport(container)) {
+                const cards = document.querySelectorAll('.course-card');
+                cards.forEach(card => {
+                    card.classList.add('animate');
+                });
+                // Removemos el evento una vez que se han animado las cards
+                window.removeEventListener('scroll', animateCards);
+            }
+        }
+
+        // Ejecutar las animaciones inmediatamente si el contenedor está visible al cargar
+        window.addEventListener('load', () => {
+            setTimeout(animateCards, 100);
+        });
+        
+        // Verificar al hacer scroll
+        window.addEventListener('scroll', animateCards);
+    </script>
+</body>
+<style>
+    /* Estilos base compartidos */
+    .section-base {
+        background-color: black;
+        color: white;
+        margin: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .section-base.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Estilos para la sección de horarios */
+    .schedule-section {
+        padding: 2rem 1rem;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: black;
+        color: white;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .schedule-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .schedule-title {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        border: 1px solid white;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+    }
+    
+    .schedule-title.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .schedule-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+    }
+    
+    .schedule-table.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .schedule-table th,
+    .schedule-table td {
+        padding: 0.75rem 1rem;
+        text-align: center;
+        position: relative;
+        color: white;
+    }
+    
+    .schedule-table th {
+        text-align: center;
+    }
+    
+    .schedule-table td:first-child {
+        text-align: center;
+        border-right: 2px solid white;
+    }
+    
+    .schedule-table td:nth-child(2) {
+        border-right: 2px solid white;
+    }
+    
+    /* Estilos para la sección de contactos */
+    .contacts-section {
+        background-color: black;
+        color: white;
+        padding: 2rem 1rem;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .contacts-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .contacts-title {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        border: 1px solid white;
+        text-transform: uppercase;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+    }
+    
+    .contacts-title.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .contact-info {
+        font-size: clamp(0.875rem, 2vw, 1rem);
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+    }
+    
+    .contact-info.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Estilos para las secciones de ubicaciones */
+    .locations-section {
+        background-color: black;
+        padding: 2rem 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    .locations-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .locations-container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .section-title {
+        text-align: center;
+        border: 1px solid white;
+        padding: 0.5rem 1.5rem;
+        margin: 1rem auto 2rem;
+        font-size: clamp(1rem, 3vw, 1.2rem);
+        display: inline-block;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.6s ease 0.2s;
+        color: white;
+    }
+    
+    .section-title.visible {
+        opacity: 1;
+    }
+    
+    .locations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+    
+    .location-card {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+        color: white;
+    }
+    
+    .location-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .location-card img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+        background-color: black;
+    }
+    
+    .location-card img:hover {
+        transform: scale(1.05);
+    }
+    
+    .location-info {
+        text-transform: uppercase;
+        font-size: clamp(0.75rem, 2vw, 0.875rem);
+        line-height: 1.4;
+        text-align: center;
+        padding: 1rem 0;
+        color: white;
+    }
+    
+    .sede-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    /* Divisor entre secciones */
+    .section-divider {
+        height: 1px;
+        background: linear-gradient(to right, transparent, #ffffff50, transparent);
+        margin: 1rem 0;
+        max-width: 100%;
+    }
+    
+    /* Media queries */
+    @media (max-width: 768px) {
+        .schedule-section,
+        .locations-section {
+            padding: 1.5rem 0.5rem;
+        }
+    
+        .locations-grid {
+            gap: 1.5rem;
+        }
+    
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .schedule-section,
+        .locations-section {
+            padding: 1rem 0.25rem;
+        }
+    
+        .locations-grid {
+            gap: 1rem;
+        }
+    
+        .location-card img {
+            border-radius: 8px;
+        }
+    
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.25rem;
+            font-size: 0.8rem;
+        }
+    }
+    </style>
+    
+    <script>
+    window.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Para la sección de horarios
+                    if (entry.target.classList.contains('schedule-section')) {
+                        const title = entry.target.querySelector('.schedule-title');
+                        const table = entry.target.querySelector('.schedule-table');
+                        
+                        if (title) title.classList.add('visible');
+                        if (table) table.classList.add('visible');
+                    }
+                    
+                    // Para la sección de contactos
+                    if (entry.target.classList.contains('contacts-section')) {
+                        const title = entry.target.querySelector('.contacts-title');
+                        const info = entry.target.querySelector('.contact-info');
+                        
+                        if (title) title.classList.add('visible');
+                        if (info) info.classList.add('visible');
+                    }
+                    
+                    // Para las secciones de ubicaciones
+                    if (entry.target.classList.contains('locations-section')) {
+                        const title = entry.target.querySelector('.section-title');
+                        const cards = entry.target.querySelectorAll('.location-card');
+                        
+                        if (title) title.classList.add('visible');
+                        
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, index * 200);
+                        });
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+    
+        // Observar todas las secciones
+        document.querySelectorAll('.schedule-section, .contacts-section, .locations-section').forEach(section => {
+            observer.observe(section);
+        });
+    });
+    </script>
+    </head>
+    <body>
+        <section class="schedule-section">
+            <h2 class="schedule-title">NUESTROS HORARIOS DE ATENCIÓN</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>DIA</th>
+                        <th>MAÑANA</th>
+                        <th>TARDE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LUNES</td>
+                        <td>08:30-12:30</td>
+                        <td>14:30-18:30</td>
+                    </tr>
+                    <tr>
+                        <td>MARTES</td>
+                        <td>08:30-12:30</td>
+                        <td>14:30-18:30</td>
+                    </tr>
+                    <tr>
+                        <td>MIÉRCOLES</td>
+                        <td>08:30-12:30</td>
+                        <td>14:30-18:30</td>
+                    </tr>
+                    <tr>
+                        <td>JUEVES</td>
+                        <td>08:30-12:30</td>
+                        <td>14:30-18:30</td>
+                    </tr>
+                    <tr>
+                        <td>VIERNES</td>
+                        <td>08:30-12:30</td>
+                        <td>14:30-18:30</td>
+                    </tr>
+                    <tr>
+                        <td>SÁBADO</td>
+                        <td>08:30-12:30</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    
+        <section class="contacts-section">
+            <h2 class="contacts-title">CONTACTOS</h2>
+            <div class="contact-info">
+                <p>Dirección: Sopocachi Calle Méndez Arcos</p>
+                <p>#758 entre el Teleférico Amarillo y plaza España</p>
+                <p>Correo:</p>
+                <p>Teléfono: 69747992</p>
+            </div>
+        </section>
+    
+        <!-- Sección de Diseño de Modas -->
+        <section class="locations-section">
+            <div class="locations-container">
+                <div class="section-title">
+                    SEDES DE DISEÑO DE MODAS
+                </div>
+                
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/9LTr1NbuyK4Pfokh8">
+                            <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>LA PAZ</div>
+                            <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                            <div>TELÉFONO: 69743792</div>
+                        </div>
+                    </div>
+    
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/TDyjYvchQaV4zGwZ7">
+                            <img src="imagenes/Recurso 19.png" alt="Mapa Cochabamba">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>COCHABAMBA</div>
+                            <div>AVENIDA LIBERTADOR SIMÓN BOLÍVAR</div>
+                            <div>TELÉFONO: 44528593</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <div class="section-divider"></div>
+    
+        <!-- Sección de Gastronomía -->
+        <section class="locations-section">
+            <div class="locations-container">
+                <div class="section-title">
+                    SEDES DE GASTRONOMÍA
+                </div>
+                
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                            <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>LA PAZ</div>
+                            <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                            <div>TELÉFONO: 69743792</div>
+                        </div>
+                    </div>
+    
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                            <img src="imagenes/Recurso 23.png" alt="Mapa Cochabamba">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>COCHABAMBA</div>
+                            <div>CALLE CHUQUISACA #688</div>
+                            <div>TELÉFONO: 4531043</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="locations-grid" style="margin-top: 2rem;">
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/AVQMGeDqkirRYL6G7">
+                            <img src="imagenes/Recurso 22.png" alt="Mapa Oruro">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>ORURO</div>
+                            <div>CALLE 6 DE OCTUBRE</div>
+                            <div>TELÉFONO: </div>
+                        </div>
+                    </div>
+    
+                    <div class="location-card">
+                        <a href="https://maps.app.goo.gl/qd7VrUZo8CPCoC53A">
+                            <img src="imagenes/Recurso 24.png" alt="Mapa Potosí">
+                        </a>
+                        <div class="location-info">
+                            <div class="sede-title">SEDE</div>
+                            <div>POTOSI</div>
+                            <div>CALLE Tarija 30, Villa Imperial de Potosí</div>
+                            <div>TELÉFONO: 74289575</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <style>
+            .social-bar {
+                position: fixed;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                background: white;
+                padding: 8px;
+                border-radius: 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                z-index: 9999;
+                transition: opacity 0.3s ease;
+            }
+            
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                text-decoration: none;
+                transition: all 0.3s ease;
+            }
+            
+            .social-icon:hover {
+                transform: scale(1.1);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            }
+            
+            .facebook { background: #1877f2; }
+            .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+            .tiktok { background: #000000; }
+            .whatsapp { background: #25D366; }
+            
+            .social-icon i {
+                font-size: 16px;
+                color: white;
+            }
+            
+            /* Ocultar la barra social cuando el menú móvil está activo */
+            .menu-mobile.active ~ .social-bar {
+                opacity: 0;
+                pointer-events: none;
+            }
+            
+            /* Pantallas extra grandes (≥1400px) */
+            @media screen and (min-width: 1400px) {
+                .social-bar {
+                    right: 30px;
+                    padding: 10px;
+                }
+                .social-icon {
+                    width: 40px;
+                    height: 40px;
+                }
+                .social-icon i {
+                    font-size: 18px;
+                }
+            }
+            
+            /* Pantallas grandes (≥1200px) */
+            @media screen and (max-width: 1200px) {
+                .social-bar {
+                    right: 25px;
+                }
+                .social-icon {
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+            
+            /* Pantallas medianas (≥992px) */
+            @media screen and (max-width: 992px) {
+                .social-bar {
+                    right: 20px;
+                    padding: 7px;
+                }
+                .social-icon {
+                    width: 32px;
+                    height: 32px;
+                }
+                .social-icon i {
+                    font-size: 15px;
+                }
+            }
+            
+            /* Tablets (≥768px) */
+            @media screen and (max-width: 768px) {
+                .social-bar {
+                    right: 15px;
+                    padding: 6px;
+                    z-index: 999;
+                }
+                .social-icon {
+                    width: 30px;
+                    height: 30px;
+                }
+                .social-icon i {
+                    font-size: 14px;
+                }
+            }
+            
+            /* Móviles grandes (≥576px) */
+            @media screen and (max-width: 576px) {
+                .social-bar {
+                    right: 10px;
+                    padding: 5px;
+                    gap: 6px;
+                }
+                .social-icon {
+                    width: 28px;
+                    height: 28px;
+                }
+                .social-icon i {
+                    font-size: 13px;
+                }
+            }
+            
+            /* Móviles pequeños (<400px) */
+            @media screen and (max-width: 400px) {
+                .social-bar {
+                    right: 8px;
+                    padding: 4px;
+                    gap: 5px;
+                }
+                .social-icon {
+                    width: 26px;
+                    height: 26px;
+                }
+                .social-icon i {
+                    font-size: 12px;
+                }
+            }
+            
+            /* Modo paisaje en móviles o pantallas muy bajas */
+            @media screen and (max-height: 480px) {
+                .social-bar {
+                    flex-direction: row;
+                    top: auto;
+                    bottom: 15px;
+                    right: 50%;
+                    transform: translateX(50%);
+                    padding: 5px;
+                }
+                .social-icon {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+            
+            /* Dispositivos muy pequeños en modo paisaje */
+            @media screen and (max-height: 350px) {
+                .social-bar {
+                    bottom: 10px;
+                    padding: 4px;
+                    gap: 5px;
+                }
+                .social-icon {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+            </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="social-bar">
+            <a href="https://www.facebook.com/p/Instituto-Tecnol%C3%B3gico-Superior-en-Gastromoda-61553427907166/" class="social-icon facebook" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/instituto_gastromoda" class="social-icon instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@gastromoda.instit?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://wa.link/pxobem" class="social-icon whatsapp" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </body>
+    </html>
+</html>
+
+  

@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Empresarial de-Instituto Gastromoda</title>
+</head>
+<style>
+ *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+               }
+            
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 0.5; /* Eliminado el padding */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0; /* Asegura que esté pegado arriba */
+        }
+
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura fija para el contenedor */
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 60px; /* Ajusta según el tamaño de tu logo */
+    width: auto;
+}
+
+/* Menú Desktop */
+.menu-desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .menu-desktop {
+        display: flex;
+        align-items: center;
+        gap: 3 rem; /* Aumentado el espaciado entre elementos */
+        height: 60px; /* Altura fija para el menú */
+    }
+}
+
+.menu-item {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+    padding: 1rem 0.5rem; /* Añadido padding vertical y horizontal */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    position: relative; /* Para efectos hover si deseas añadirlos después */
+}
+
+.menu-item:hover {
+    color: rgba(100, 40, 128, 0.95)
+    
+}
+/* Botón menú móvil */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0rem;
+}
+
+@media (min-width: 1024px) {
+    .menu-button {
+        display: none;
+    }
+}
+
+.menu-button span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: white;
+}
+
+/* Menú móvil */
+.menu-mobile {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 2000;
+    padding: 1.5rem;
+    display: none;
+}
+
+.menu-mobile.active {
+    display: block;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+    </style>
+<body>
+    <div class="container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="imagenes/logo.png" alt="Logo Gastromoda" class="logo-image">
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="menu-desktop">
+                    <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                    <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                    <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                    <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                    <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                    <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                    <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+                </div>
+
+                <!-- Botón menú móvil -->
+                <button class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú móvil -->
+        <div class="menu-mobile" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="close-button" id="closeButton">✕</button>
+            </div>
+            <div class="mobile-menu-items">
+                <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    <style>
+        /* Importamos múltiples opciones de fuentes fashion */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
+    /* Hero Section Styles */
+    .hero-section {
+            height: 100vh;
+            width: 100%;
+            background-image: url('imagenes/pexels-eduardo-hernandezsoto-1315528681-30031903.jpg');
+            background-size: cover;
+            background-position: center top;
+            position: relative; /* Cambiado de absolute a relative */
+            margin-top: 80px; /* En lugar de top: 80px */
+            overflow: hidden;
+            opacity: 0;
+            animation: fadeIn 1.2s ease forwards;
+        }
+    .animate-in {
+        animation: scaleIn 1.2s ease forwards;
+    }
+    
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(100, 40, 128, 0.4), rgba(0, 0, 0, 0.6));
+        opacity: 0;
+        animation: fadeIn 1.5s ease forwards;
+        animation-delay: 0.3s;
+    }
+    
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
+        z-index: 2;
+    }
+    
+    .hero-title {
+        font-family: 'Italiana', serif;
+        color: white;
+    font-size: 5.5rem; /* Aumentado ligeramente para mejor impacto */
+    line-height: 1.2;
+    margin: 0;
+    letter-spacing: 4px; /* Aumentado el espaciado entre letras */
+    text-transform: uppercase;
+    font-weight: 300; /* Más ligero para un look más fashion */
+    }
+    
+    .hero-title .line {
+        display: block;
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .hero-title .line:nth-child(1) {
+        animation-delay: 0.8s;
+    }
+    
+    .hero-title .line:nth-child(2) {
+        animation-delay: 1s;
+    }
+    
+    .hero-title .line:nth-child(3) {
+        animation-delay: 1.2s;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 1024px) {
+    .hero-title {
+        font-size: 4.5rem;
+        letter-spacing: 3px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.8rem;
+        letter-spacing: 1.5px;
+    }
+}
+</style>
+    <div class="hero-section animate-in">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="line">DISEÑO</span>
+                <span class="line">EMPRESARIAL DE</span>
+                <span class="line">MODAS</span>
+            </h1>
+        </div>
+    </div>
+</body>
+<body>
+    <style>
+   .schedule-section {
+            position: relative;
+            width: 100%;
+            margin-top: 0; /* Elimina el margin-top calculado */
+            padding-top: 60px;
+        }
+
+.schedule-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.schedule-card {
+    width: 100%;
+    border-radius: 35px;
+    padding: 40px;
+    background-image: url('imagenes/female-fashion-designer-working-studio-sitting-desk.jpg');
+    background-size: cover;
+    background-position: top center;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.schedule-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 10px;
+}
+
+.info-box {
+    background-color: rgba(100, 40, 128, 0.95);
+    padding: 20px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+    height: fit-content;
+    opacity: 0;
+    transform: translateX(-50px);
+    visibility: hidden;
+}
+
+/* Animation classes */
+.info-box.visible {
+    visibility: visible;
+    animation: none;
+}
+
+.info-box.visible.animate-left {
+    animation: slideFromLeft 0.6s ease forwards;
+}
+
+.info-box.visible.animate-right {
+    animation: slideFromRight 0.6s ease forwards;
+}
+
+.info-box.visible.animate-up {
+    animation: slideFromBottom 0.6s ease forwards;
+}
+
+/* Box positions */
+.info-box.inicio {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.info-box.duracion {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-box.modalidad {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.info-box.horario {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.info-box.sede {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.info-box.folleto {
+    background-color: #663399; /* Purple color matching your design */
+    border-radius: 10px;
+    padding: 15px 25px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.info-box.folleto:hover {
+    background-color: #7a3db8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.info-box.folleto a {
+    text-decoration: none;
+    display: block;
+}
+
+.info-box.folleto .info-title {
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border: none;
+    position: relative;
+}
+
+
+.info-title {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+}
+
+.info-subtitle {
+    color: white;
+    font-size: 1rem;
+    margin: 8px 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.horario-details {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.horario-row {
+    display: contents;
+}
+
+.horario-row span {
+    color: white;
+    text-align: left;
+    padding: 1px 3px;
+}
+
+/* Download button styles */
+.download-button {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.download-button:hover {
+    transform: scale(1.05);
+}
+
+/* Arrow styles */
+.arrow-container {
+    width: 134px;
+    height: 44px;
+    margin: 20px auto 0;
+    animation: bounceArrow 2s infinite;
+}
+
+.arrow-down {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.3));
+}
+
+/* Animation keyframes */
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceArrow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .schedule-content {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .schedule-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-section {
+        padding: 20px 10px;
+    }
+
+    .info-box {
+        padding: 15px;
+    }
+
+    .info-title {
+        font-size: 1rem;
+    }
+}
+        </style>
+        
+        <div class="schedule-section">
+            <div class="schedule-wrapper">
+                <div class="schedule-card">
+                    <div class="schedule-content">
+                        <div class="info-box inicio">
+                            <div class="info-title">INICIO</div>
+                            <div class="info-subtitle">FEBRERO 2025</div>
+                        </div>
+        
+                        <div class="info-box duracion">
+                            <div class="info-title">DURACIÓN</div>
+                            <div class="years">3 AÑOS</div>
+                        </div>
+        
+                        <div class="info-box modalidad">
+                            <div class="info-title">MODALIDAD</div>
+                            <div class="info-subtitle">PRESENCIAL</div>
+                        </div>
+        
+                        <div class="info-box horario">
+                            <div class="info-title">HORARIO</div>
+                            <div class="horario-details">
+                                <div class="horario-row">
+                                    <span>Mañana:</span>
+                                    <span>08:30-12:30</span>
+                                </div>
+                                <div class="horario-row">
+                                    <span>Tarde:</span>
+                                    <span>14:30-18:30</span>
+                                </div>
+                                <div class="horario-row">
+                                    <span>Noche:</span>
+                                    <span>18:00-22:00</span>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="info-box sede">
+                            <div class="info-title">SEDE</div>
+                            <div class="info-subtitle">La Paz - Sopocachi</div>
+                        </div>
+        
+                        <div class="info-box folleto">
+                            <a href="pdfs/CARRERA DE DISEÑO EMPRESARIAL DE MODAS (1).pdf" download>
+                                <div class="info-title">DESCARGAR FOLLETO</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flecha animada -->
+            <div class="arrow-container">
+                <img src="imagenes/Recurso 121.png" alt="Flecha abajo" class="arrow-down">
+            </div>
+        </div>
+        </body>
+        <script>
+        // Función para descargar PDF
+        function downloadPDF(event) {
+            event.preventDefault();
+            
+            // Crear un elemento blob con un PDF vacío (reemplazar con tu PDF real)
+            const pdfBlob = new Blob(['pdfs/CARRERA DE MODAS.pdf'], { type: 'pdfs/CARRERA DE DISEÑO EMPRESARIAL DE MODAS (1).pdf' });
+            
+            // Crear un elemento <a> temporal
+            const downloadLink = document.createElement('a');
+            downloadLink.href = URL.createObjectURL(pdfBlob);
+            downloadLink.download = 'folleto_instituto.pdf';
+            
+            // Añadir al documento, hacer clic y remover
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            // Liberar el URL objeto
+            URL.revokeObjectURL(downloadLink.href);
+        }
+        
+        // Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            function animateElements() {
+                const boxes = document.querySelectorAll('.info-box');
+                
+                boxes.forEach((box, index) => {
+                    box.style.visibility = 'visible';
+                    box.classList.add('visible');
+                    
+                    setTimeout(() => {
+                        if (index % 3 === 0) {
+                            box.classList.add('animate-left');
+                        } else if (index % 3 === 1) {
+                            box.classList.add('animate-up');
+                        } else {
+                            box.classList.add('animate-right');
+                        }
+                    }, index * 200);
+                });
+            }
+        
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateElements();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+        
+            const scheduleSection = document.querySelector('.schedule-section');
+            if (scheduleSection) {
+                observer.observe(scheduleSection);
+            } else {
+                animateElements();
+            }
+        });
+        
+        // Activar animaciones si la página ya está cargada
+        if (document.readyState === 'complete') {
+            const boxes = document.querySelectorAll('.info-box');
+            boxes.forEach((box, index) => {
+                box.style.visibility = 'visible';
+                box.classList.add('visible');
+                if (index % 3 === 0) {
+                    box.classList.add('animate-left');
+                } else if (index % 3 === 1) {
+                    box.classList.add('animate-up');
+                } else {
+                    box.classList.add('animate-right');
+                }
+            });
+        }
+        </script>
+        <body>
+         <br>  
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600&display=swap');
+    
+            .fashion-section {
+                background-color: black;
+                color: white;
+                padding: 4rem 2rem;
+                position: relative;
+                overflow: hidden;
+                max-width: 1000px;
+                margin: 0 auto;
+            }
+    
+            .fashion-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at 50% 50%, rgba(100, 40, 128, 0.3), transparent 70%);
+            }
+    
+            .main-title {
+                font-family: 'Italiana', serif;
+                font-size: 4rem;
+                text-align: center;
+                margin-bottom: 3rem;
+                opacity: 0;
+                transform: translateY(50px);
+                transition: all 1s ease;
+            }
+    
+            .content-container {
+                max-width: 800px;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+    
+            /* Main Image Section */
+            .image-showcase {
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                background: rgba(100, 40, 128, 0.1);
+                padding: 15px;
+                opacity: 0;
+                transform: translateX(-50px);
+                transition: all 1s ease;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+                width: 100%;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+    
+            .main-image-container {
+                width: 100%;
+                aspect-ratio: 16/9;
+                border-radius: 15px;
+                overflow: hidden;
+                background: #1a1a1a;
+            }
+    
+            .main-image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+    
+            /* Image Gallery */
+            .image-gallery {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                margin-top: 1.5rem;
+            }
+    
+            .gallery-item {
+                position: relative;
+                border-radius: 20px;
+                overflow: hidden;
+                aspect-ratio: 2/3;
+                background: rgba(100, 40, 128, 0.1);
+                padding: 10px;
+                transition: transform 0.3s ease;
+            }
+    
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+                transition: transform 0.5s ease;
+            }
+    
+            .gallery-item:hover {
+                transform: translateY(-5px);
+            }
+    
+            /* Info Cards Grid */
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                opacity: 0;
+                transform: translateY(50px);
+                transition: all 1s ease;
+            }
+    
+            .info-card {
+                background: rgba(100, 40, 128, 0.1);
+                backdrop-filter: blur(10px);
+                padding: 1.5rem;
+                border-radius: 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+            }
+    
+            .info-card:hover {
+                transform: translateY(-5px);
+                background: rgba(100, 40, 128, 0.2);
+                border-color: rgba(255, 255, 255, 0.2);
+                box-shadow: 0 10px 30px rgba(100, 40, 128, 0.3);
+            }
+    
+            .info-card h3 {
+                font-family: 'Raleway', sans-serif;
+                font-size: 1.25rem;
+                margin-bottom: 0.75rem;
+                font-weight: 600;
+                color: #fff;
+            }
+    
+            .info-card p {
+                font-family: 'Raleway', sans-serif;
+                line-height: 1.6;
+                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.9rem;
+            }
+    
+            /* Visible classes for scroll animations */
+            .main-title.visible,
+            .image-showcase.visible,
+            .info-grid.visible {
+                opacity: 1;
+                transform: translateY(0) translateX(0);
+            }
+    
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .main-title {
+                    font-size: 3rem;
+                }
+                .image-gallery {
+                    grid-template-columns: 1fr;
+                }
+                .info-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    <body>
+        <section class="fashion-section">
+            <h1 class="main-title">DESFILES DE MODAS</h1>
+            
+            <div class="content-container">
+                <div class="image-showcase">
+                    <div class="main-image-container">
+                        <img src="imagenes/pexels-gesel-1343524 (1).jpg" alt="Fashion Design Showcase">
+                    </div>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="imagenes/Recurso 211.png" alt="Fashion Design 1">
+                        </div>
+                        <div class="gallery-item">
+                            <img src="imagenes/Recurso 210.png" alt="Fashion Design 2">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>¿QUÉ ES LA CARRERA?</h3>
+                        <p>Es la creación de ropa, accesorios y calzado, donde podrás dirigir el diseño hacia tu propio estilo creativo y desarrollar colecciones únicas.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>¿POR QUÉ ESTUDIARLA?</h3>
+                        <p>Desarrollarás habilidades creativas y técnicas, aprenderás sobre tendencias globales, y te prepararás para una industria en constante evolución y crecimiento.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>CAMPO LABORAL</h3>
+                        <p>Podrás trabajar como diseñador independiente, en casas de moda, empresas textiles, o crear tu propia marca. La industria ofrece múltiples oportunidades de desarrollo profesional.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+    
+            // Observe elements
+            document.querySelectorAll('.main-title, .image-showcase, .info-grid').forEach(el => {
+                observer.observe(el);
+            });
+        </script>
+    </body>
+</body>
+<body>
+    
+
+    <style>
+        .curriculum-plan {
+            margin: 0;
+            padding: 20px;
+            background-color: #000000;
+            color: white;
+            font-family: system-ui, -apple-system, sans-serif;
+        }
+
+        .curriculum-plan * {
+            box-sizing: border-box;
+        }
+
+        .curriculum-plan .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .curriculum-plan .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .curriculum-plan .title {
+            font-size: 2rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .curriculum-plan .subtitle {
+            font-size: 1rem;
+            margin: 0.5rem 0 0;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .curriculum-plan .semester-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .curriculum-plan .semester-box {
+            position: relative;
+            border: 2px solid #9c27b0;
+            border-radius: 15px;
+            padding: 1.5rem 1.5rem 1.5rem 4rem;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .curriculum-plan .semester-number {
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: #9c27b0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(156, 39, 176, 0.5);
+        }
+
+        .curriculum-plan .subject-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .curriculum-plan .subject-list li {
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .curriculum-plan .subject-list li::before {
+            content: '•';
+            color: #9c27b0;
+            position: absolute;
+            left: 0;
+        }
+
+        .curriculum-plan .benefits-section {
+            margin-top: 4rem;
+        }
+
+        .curriculum-plan .benefits-title {
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .curriculum-plan .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .curriculum-plan .benefit-item {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .curriculum-plan .benefit-item img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .curriculum-plan .container {
+                padding: 1rem;
+            }
+            
+            .curriculum-plan .semester-box {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="curriculum-plan">
+        <div class="container">
+            <header class="header">
+                <h1 class="title">Plan de estudios</h1>
+                <p class="subtitle">(Semestral)</p>
+            </header>
+
+            <div class="semester-grid">
+                <!-- Semestre 1 -->
+                <div class="semester-box">
+                    <div class="semester-number">1</div>
+                    <ul class="subject-list">
+                        <li>Historia y tendencias de la moda</li>
+                        <li>Introducción a dibujo y taller</li>
+                        <li>Métodos y técnicas de confección</li>
+                        <li>Morfología y colorimetría</li>
+                        <li>Administración general</li>
+                    </ul>
+                </div>
+
+                <!-- Semestre 2 -->
+                <div class="semester-box">
+                    <div class="semester-number">2</div>
+                    <ul class="subject-list">
+                        <li>Técnicas de la moda I</li>
+                        <li>Dibujo y figurín I</li>
+                        <li>Patronaje y confección I</li>
+                        <li>Merchandising de moda</li>
+                        <li>Administración de línea</li>
+                        <li>Desarrollo y visual</li>
+                    </ul>
+                </div>
+
+                <!-- Semestre 3 -->
+                <div class="semester-box">
+                    <div class="semester-number">3</div>
+                    <ul class="subject-list">
+                        <li>Diseño de indumentaria</li>
+                        <li>Dibujo y figurín II</li>
+                        <li>Patronaje y confección II</li>
+                        <li>Bordado I</li>
+                        <li>Administración estratégica</li>
+                        <li>Desarrollo de marca</li>
+                    </ul>
+                </div>
+
+                <!-- Semestre 4 -->
+                <div class="semester-box">
+                    <div class="semester-number">4</div>
+                    <ul class="subject-list">
+                        <li>Fotografía</li>
+                        <li>Metodología de investigación científica</li>
+                        <li>Patronaje y confección II</li>
+                        <li>Bordado II</li>
+                        <li>Desarrollo de emprendimiento y innovación</li>
+                    </ul>
+                </div>
+
+                <!-- Semestre 5 -->
+                <div class="semester-box">
+                    <div class="semester-number">5</div>
+                    <ul class="subject-list">
+                        <li>Textiles I</li>
+                        <li>Diseño y producción I</li>
+                        <li>Patronaje y confección III</li>
+                        <li>Inglés I</li>
+                        <li>Gestión legal para la producción de negocios</li>
+                        <li>Taller de aplicación de graduación I</li>
+                    </ul>
+                </div>
+
+                <!-- Semestre 6 -->
+                <div class="semester-box">
+                    <div class="semester-number">6</div>
+                    <ul class="subject-list">
+                        <li>Textiles II</li>
+                        <li>Módulo diseño industrial</li>
+                        <li>Bordado y pedrería</li>
+                        <li>Inglés II</li>
+                        <li>Diseño de accesorios y calzado</li>
+                        <li>Taller de aplicación de graduación II</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="benefits-section">
+                <h2 class="benefits-title">Ventajas de estudiar con nosotros diseño empresarial de modas</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <img src="imagenes/Recurso 37.png" alt="Horarios">
+                        <p>Horarios a elección</p>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="imagenes/Recurso 38.png" alt="Experiencia">
+                        <p>Graduate con experiencia</p>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="imagenes/Recurso 39.png" alt="Título">
+                        <p>Título en provisión nacional</p>
+                    </div>
+                    <div class="benefit-item">
+                        <img src="imagenes/Recurso 40.png" alt="Duración">
+                        <p>Titulación en 3 años</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+<body>
+    <style>
+        /* Estilos base compartidos */
+        .section-base {
+            background-color: black;
+            color: white;
+            margin: 0;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .section-base.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Estilos para la sección de horarios */
+        .schedule-section {
+            padding: 2rem 1rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: black;
+            color: white;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .schedule-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border: 1px solid white;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+        
+        .schedule-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+        }
+        
+        .schedule-table.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .schedule-table th,
+        .schedule-table td {
+            padding: 0.75rem 1rem;
+            text-align: center;
+            position: relative;
+            color: white;
+        }
+        
+        .schedule-table th {
+            text-align: center;
+        }
+        
+        .schedule-table td:first-child {
+            text-align: center;
+            border-right: 2px solid white;
+        }
+        
+        .schedule-table td:nth-child(2) {
+            border-right: 2px solid white;
+        }
+        
+        /* Estilos para la sección de contactos */
+        .contacts-section {
+            background-color: black;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .contacts-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contacts-title {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border: 1px solid white;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+        }
+        
+        .contacts-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-info {
+            font-size: clamp(0.875rem, 2vw, 1rem);
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+        }
+        
+        .contact-info.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Estilos para las secciones de ubicaciones */
+        .locations-section {
+            background-color: black;
+            padding: 2rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .locations-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .locations-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            border: 1px solid white;
+            padding: 0.5rem 1.5rem;
+            margin: 1rem auto 2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            display: inline-block;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.6s ease 0.2s;
+            color: white;
+        }
+        
+        .section-title.visible {
+            opacity: 1;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .location-card {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            color: white;
+        }
+        
+        .location-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .location-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            background-color: black;
+        }
+        
+        .location-card img:hover {
+            transform: scale(1.05);
+        }
+        
+        .location-info {
+            text-transform: uppercase;
+            font-size: clamp(0.75rem, 2vw, 0.875rem);
+            line-height: 1.4;
+            text-align: center;
+            padding: 1rem 0;
+            color: white;
+        }
+        
+        .sede-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* Divisor entre secciones */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #ffffff50, transparent);
+            margin: 1rem 0;
+            max-width: 100%;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            .schedule-section,
+            .locations-section {
+                padding: 1.5rem 0.5rem;
+            }
+        
+            .locations-grid {
+                gap: 1.5rem;
+            }
+        
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .schedule-section,
+            .locations-section {
+                padding: 1rem 0.25rem;
+            }
+        
+            .locations-grid {
+                gap: 1rem;
+            }
+        
+            .location-card img {
+                border-radius: 8px;
+            }
+        
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.25rem;
+                font-size: 0.8rem;
+            }
+        }
+        </style>
+        
+        <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // Para la sección de horarios
+                        if (entry.target.classList.contains('schedule-section')) {
+                            const title = entry.target.querySelector('.schedule-title');
+                            const table = entry.target.querySelector('.schedule-table');
+                            
+                            if (title) title.classList.add('visible');
+                            if (table) table.classList.add('visible');
+                        }
+                        
+                        // Para la sección de contactos
+                        if (entry.target.classList.contains('contacts-section')) {
+                            const title = entry.target.querySelector('.contacts-title');
+                            const info = entry.target.querySelector('.contact-info');
+                            
+                            if (title) title.classList.add('visible');
+                            if (info) info.classList.add('visible');
+                        }
+                        
+                        // Para las secciones de ubicaciones
+                        if (entry.target.classList.contains('locations-section')) {
+                            const title = entry.target.querySelector('.section-title');
+                            const cards = entry.target.querySelectorAll('.location-card');
+                            
+                            if (title) title.classList.add('visible');
+                            
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('visible');
+                                }, index * 200);
+                            });
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+        
+            // Observar todas las secciones
+            document.querySelectorAll('.schedule-section, .contacts-section, .locations-section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+        </script>
+        </head>
+        <body>
+            <section class="schedule-section">
+                <h2 class="schedule-title">NUESTROS HORARIOS DE ATENCIÓN</h2>
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>DIA</th>
+                            <th>MAÑANA</th>
+                            <th>TARDE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LUNES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>MARTES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>MIÉRCOLES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>JUEVES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>VIERNES</td>
+                            <td>08:30-12:30</td>
+                            <td>14:30-18:30</td>
+                        </tr>
+                        <tr>
+                            <td>SÁBADO</td>
+                            <td>08:30-12:30</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        
+            <section class="contacts-section">
+                <h2 class="contacts-title">CONTACTOS</h2>
+                <div class="contact-info">
+                    <p>Dirección: Sopocachi Calle Méndez Arcos</p>
+                    <p>#758 entre el Teleférico Amarillo y plaza España</p>
+                    <p>Correo:</p>
+                    <p>Teléfono: 69747992</p>
+                </div>
+            </section>
+        
+            <!-- Sección de Diseño de Modas -->
+            <section class="locations-section">
+                <div class="locations-container">
+                    <div class="section-title">
+                        SEDES DE DISEÑO DE MODAS
+                    </div>
+                    
+                    <div class="locations-grid">
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/9LTr1NbuyK4Pfokh8">
+                                <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>LA PAZ</div>
+                                <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                                <div>TELÉFONO: 69743792</div>
+                            </div>
+                        </div>
+        
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/TDyjYvchQaV4zGwZ7">
+                                <img src="imagenes/Recurso 19.png" alt="Mapa Cochabamba">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>COCHABAMBA</div>
+                                <div>AVENIDA LIBERTADOR SIMÓN BOLÍVAR</div>
+                                <div>TELÉFONO: 44528593</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <div class="section-divider"></div>
+        
+            <!-- Sección de Gastronomía -->
+            <section class="locations-section">
+                <div class="locations-container">
+                    <div class="section-title">
+                        SEDES DE GASTRONOMÍA
+                    </div>
+                    
+                    <div class="locations-grid">
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                                <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>LA PAZ</div>
+                                <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                                <div>TELÉFONO: 69743792</div>
+                            </div>
+                        </div>
+        
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                                <img src="imagenes/Recurso 23.png" alt="Mapa Cochabamba">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>COCHABAMBA</div>
+                                <div>CALLE CHUQUISACA #688</div>
+                                <div>TELÉFONO: 4531043</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locations-grid" style="margin-top: 2rem;">
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/AVQMGeDqkirRYL6G7">
+                                <img src="imagenes/Recurso 22.png" alt="Mapa Oruro">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>ORURO</div>
+                                <div>CALLE 6 DE OCTUBRE</div>
+                                <div>TELÉFONO: </div>
+                            </div>
+                        </div>
+        
+                        <div class="location-card">
+                            <a href="https://maps.app.goo.gl/qd7VrUZo8CPCoC53A">
+                                <img src="imagenes/Recurso 24.png" alt="Mapa Potosí">
+                            </a>
+                            <div class="location-info">
+                                <div class="sede-title">SEDE</div>
+                                <div>POTOSI</div>
+                                <div>CALLE Tarija 30, Villa Imperial de Potosí</div>
+                                <div>TELÉFONO: 74289575</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </body>
+        
+<body>
+    <style>
+        .social-bar {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: white;
+            padding: 8px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+        
+        .social-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .facebook { background: #1877f2; }
+        .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+        .tiktok { background: #000000; }
+        .whatsapp { background: #25D366; }
+        
+        .social-icon i {
+            font-size: 16px;
+            color: white;
+        }
+        
+        /* Ocultar la barra social cuando el menú móvil está activo */
+        .menu-mobile.active ~ .social-bar {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Pantallas extra grandes (≥1400px) */
+        @media screen and (min-width: 1400px) {
+            .social-bar {
+                right: 30px;
+                padding: 10px;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .social-icon i {
+                font-size: 18px;
+            }
+        }
+        
+        /* Pantallas grandes (≥1200px) */
+        @media screen and (max-width: 1200px) {
+            .social-bar {
+                right: 25px;
+            }
+            .social-icon {
+                width: 35px;
+                height: 35px;
+            }
+        }
+        
+        /* Pantallas medianas (≥992px) */
+        @media screen and (max-width: 992px) {
+            .social-bar {
+                right: 20px;
+                padding: 7px;
+            }
+            .social-icon {
+                width: 32px;
+                height: 32px;
+            }
+            .social-icon i {
+                font-size: 15px;
+            }
+        }
+        
+        /* Tablets (≥768px) */
+        @media screen and (max-width: 768px) {
+            .social-bar {
+                right: 15px;
+                padding: 6px;
+                z-index: 999;
+            }
+            .social-icon {
+                width: 30px;
+                height: 30px;
+            }
+            .social-icon i {
+                font-size: 14px;
+            }
+        }
+        
+        /* Móviles grandes (≥576px) */
+        @media screen and (max-width: 576px) {
+            .social-bar {
+                right: 10px;
+                padding: 5px;
+                gap: 6px;
+            }
+            .social-icon {
+                width: 28px;
+                height: 28px;
+            }
+            .social-icon i {
+                font-size: 13px;
+            }
+        }
+        
+        /* Móviles pequeños (<400px) */
+        @media screen and (max-width: 400px) {
+            .social-bar {
+                right: 8px;
+                padding: 4px;
+                gap: 5px;
+            }
+            .social-icon {
+                width: 26px;
+                height: 26px;
+            }
+            .social-icon i {
+                font-size: 12px;
+            }
+        }
+        
+        /* Modo paisaje en móviles o pantallas muy bajas */
+        @media screen and (max-height: 480px) {
+            .social-bar {
+                flex-direction: row;
+                top: auto;
+                bottom: 15px;
+                right: 50%;
+                transform: translateX(50%);
+                padding: 5px;
+            }
+            .social-icon {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        /* Dispositivos muy pequeños en modo paisaje */
+        @media screen and (max-height: 350px) {
+            .social-bar {
+                bottom: 10px;
+                padding: 4px;
+                gap: 5px;
+            }
+            .social-icon {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="social-bar">
+        <a href="https://www.facebook.com/p/Instituto-Tecnol%C3%B3gico-Superior-en-Gastromoda-61553427907166/" class="social-icon facebook" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/instituto_gastromoda" class="social-icon instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@gastromoda.instit?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" aria-label="TikTok">
+            <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://wa.link/pxobem" class="social-icon whatsapp" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    <div>
+        <div>
+            <div>
+                <div><div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <div>
+                                            <div>
+                                                <div><div>
+                                                    <div>
+                                                        <div>
+                                                            <div>
+                                                                <div>
+                                                                    <div>
+                                                                        <div>
+                                                                            <div>
+                                                                                <div><div>
+                                                                                    <div>
+                                                                                        <div>
+                                                                                            <div>
+                                                                                                <div>
+                                                                                                    <div>
+                                                                                                        <div>
+                                                                                                            <div>
+                                                                                                                <div><div>
+                                                                                                                    <div>
+                                                                                                                        <div>
+                                                                                                                            <div>
+                                                                                                                                <div>
+                                                                                                                                    <div>
+                                                                                                                                        <div>
+                                                                                                                                            <div>
+                                                                                                                                                <div><div>
+                                                                                                                                                    <div>
+                                                                                                                                                        <div>
+                                                                                                                                                            <div>
+                                                                                                                                                                <div>
+                                                                                                                                                                    <div>
+                                                                                                                                                                        <div>
+                                                                                                                                                                            <div>
+                                                                                                                                                                                <div><div>
+                                                                                                                                                                                    <div>
+                                                                                                                                                                                        <div>
+                                                                                                                                                                                            <div>
+                                                                                                                                                                                                <div>
+                                                                                                                                                                                                    
+                                                                                                                                                                                                </div>
+                                                                                                                                                                                            </div>
+                                                                                                                                                                                        </div>
+                                                                                                                                                                                    </div>
+                                                                                                                                                                                </div></div>
+                                                                                                                                                                            </div>
+                                                                                                                                                                        </div>
+                                                                                                                                                                    </div>  
+                                                                                                                                                                </div>
+                                                                                                                                                            </div>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div></div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                </div></div>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div> 
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</body>
+</html>
+</head>

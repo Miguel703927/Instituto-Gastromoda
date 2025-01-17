@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capacitaciones-Instituto Gastromoda</title>
+</head>
+<style>
+ *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+               }
+            
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            padding: 0.5; /* Eliminado el padding */
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0; /* Asegura que esté pegado arriba */
+        }
+
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px; /* Altura fija para el contenedor */
+}
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    height: 60px; /* Ajusta según el tamaño de tu logo */
+    width: auto;
+}
+
+/* Menú Desktop */
+.menu-desktop {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .menu-desktop {
+        display: flex;
+        align-items: center;
+        gap: 3 rem; /* Aumentado el espaciado entre elementos */
+        height: 60px; /* Altura fija para el menú */
+    }
+}
+
+.menu-item {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.3s;
+    padding: 1rem 0.5rem; /* Añadido padding vertical y horizontal */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    position: relative; /* Para efectos hover si deseas añadirlos después */
+}
+
+.menu-item:hover {
+    color: #FF5722
+    
+}
+/* Botón menú móvil */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0rem;
+}
+
+@media (min-width: 1024px) {
+    .menu-button {
+        display: none;
+    }
+}
+
+.menu-button span {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    background-color: white;
+}
+
+/* Menú móvil */
+.menu-mobile {
+    position: fixed;
+    inset: 0;
+    background-color: black;
+    z-index: 2000;
+    padding: 1.5rem;
+    display: none;
+}
+
+.menu-mobile.active {
+    display: block;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-menu-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+    </style>
+<body>
+    <div class="container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="imagenes/logo.png" alt="Logo Gastromoda" class="logo-image">
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="menu-desktop">
+                    <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                    <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                    <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                    <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                    <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                    <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                    <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+                </div>
+
+                <!-- Botón menú móvil -->
+                <button class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú móvil -->
+        <div class="menu-mobile" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="close-button" id="closeButton">✕</button>
+            </div>
+            <div class="mobile-menu-items">
+                <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <br>
+        <style>
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
+        }
+           /* Hero Section */
+        .hero {
+            height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+            transform-origin: center;
+            animation: subtle-zoom 15s ease-in-out infinite alternate;
+        }
+
+        @keyframes subtle-zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+            opacity: 0;
+            animation: fade-in 1s ease forwards;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+    
+            .hero-title::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 3px;
+                background-color: #FF5722;
+                transition: width 0.3s ease;
+            }
+    
+            .hero-title:hover::after {
+                width: 150px;
+            }
+    
+              /* Course Information Section */
+        .courses-info {
+            background-color: black;
+            padding: 4rem 2rem;
+        }
+.info-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.info-title {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.info-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #FF5722, transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .info-title {
+        font-size: 2rem;
+    }
+}
+
+        .info-box {
+            background: rgba(255, 87, 34, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.2);
+        }
+    
+            .info-text {
+                text-align: center;
+                margin-bottom: 2rem;
+                line-height: 1.6;
+                font-size: 1.1rem;
+            }
+    
+            .schedule-box {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+                margin-bottom: 2rem;
+            }
+    
+            .schedule-item {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem;
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 10px;
+                transition: transform 0.3s ease, background 0.3s ease;
+            }
+    
+            .schedule-item:hover {
+                transform: translateY(-3px);
+                background: rgba(255, 87, 34, 0.15);
+            }
+    
+            .schedule-icon {
+                width: 48px;
+                height: 48px;
+                transition: transform 0.3s ease;
+            }
+    
+            .download-btn {
+    background-color: #FF5722;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #F4511E;
+}
+
+.download-btn a {
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: none;
+}
+            /* Courses Grid */
+            .courses-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 3rem auto;
+            }
+    
+            .course-card {
+                background: rgba(255, 255, 255, 0.05);
+                border-radius: 15px;
+                overflow: hidden;
+                transition: all 0.3s ease;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+    
+            .course-card:hover {
+                transform: translateY(-10px);
+                border-color: #FF5722;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            }
+    
+            .course-image {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+    
+            .course-card:hover .course-image {
+                transform: scale(1.05);
+            }
+    
+            .course-content {
+                padding: 1.5rem;
+                border-top: 1px solid rgba(255, 87, 34, 0.2);
+            }
+    
+            .course-title {
+                font-size: 1.25rem;
+                color: #fff;
+                margin-bottom: 0.5rem;
+                position: relative;
+                padding-bottom: 0.5rem;
+            }
+    
+            .course-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 30px;
+                height: 2px;
+                background-color: #FF5722;
+                transition: width 0.3s ease;
+            }
+    
+            .course-card:hover .course-title::after {
+                width: 50px;
+            }
+    
+            .course-duration {
+                color: #FF5722;
+                font-size: 0.9rem;
+            }
+    
+            @keyframes fade-slide-up {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+    
+            @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+                white-space: normal;
+            }
+            
+            .info-title {
+                font-size: 1.8rem;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="imagenes/Recurso 242.png" alt="Hero Image" class="hero-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Cursos de Capacitaciones<br>Diseño de moda y Gastronomía</h1>
+            </div>
+        </section>
+        <!-- Course Information Section -->
+        <section class="courses-info">
+            <div class="info-header">
+                <h2 class="info-title">Capacitaciones de Gastronomía</h2>
+                <div class="info-box">
+                    <p class="info-text">
+                        Ofrecemos cursos de capacitaciones los cuales están divididos en etapas y cada etapa tiene una duración 
+                        de 5 meses con descanso de 1 a 2 semanas entre etapas, 100% prácticos los cuales se realizan los días 
+                        sábados de 8:30 hasta 12:00.
+                    </p>
+                    <div class="schedule-box">
+                        <div class="schedule-item">
+                            <img src="imagenes/Recurso 61.png" alt="Certificate" class="schedule-icon">
+                            <span>Incluye Certificado</span>
+                        </div>
+                        <div class="schedule-item">
+                            <img src="imagenes/Recurso 60.png" alt="Clock" class="schedule-icon">
+                            <span>Clases los días Sábados</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="download-btn">
+                                <a href="Capacitaciones de Gastronomia Sabádo (4).pdf" download>
+                                    Descargar Información PDF
+                                </a>
+                            </button>
+                        </div>
+            </div>
+    
+            <div class="courses-grid">
+                <div class="course-card">
+                    <img src="imagenes/Recurso 250.png" alt="Cocina Internacional" class="course-image">
+                    <div class="course-content">
+                        <h3 class="course-title">Cocina Internacional</h3>
+                        <p class="course-duration">Duración: 5 meses</p>
+                    </div>
+                </div>
+    
+                <div class="course-card">
+                    <img src="imagenes/Recurso 251.png" alt="Panadería y Pastelería" class="course-image">
+                    <div class="course-content">
+                        <h3 class="course-title">Panadería y Pastelería</h3>
+                        <p class="course-duration">Duración: 5 meses</p>
+                    </div>
+                </div>
+    
+                <div class="course-card">
+                    <img src="imagenes/Recurso 252.png" alt="Bartender y Sommelier" class="course-image">
+                    <div class="course-content">
+                        <h3 class="course-title">Bartender y Sommelier</h3>
+                        <p class="course-duration">Duración: 5 meses</p>
+                    </div>
+                </div>
+    
+                <div class="course-card">
+                    <img src="imagenes/Recurso 253.png" alt="Cocina Tradicional" class="course-image">
+                    <div class="course-content">
+                        <h3 class="course-title">Cocina Tradicional</h3>
+                        <p class="course-duration">Duración: 5 meses</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            // Aseguramos que el título esté centrado desde el inicio
+        document.addEventListener('DOMContentLoaded', function() {
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.opacity = '1';
+            heroContent.style.transform = 'translate(-50%, -50%)';
+        });
+            // Intersection Observer for smooth animations on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+    
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+    
+            // Apply to all cards and info boxes
+            document.querySelectorAll('.course-card, .info-box').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                observer.observe(element);
+            });
+        </script>
+    </body>

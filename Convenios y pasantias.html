@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convenios y Pasanias-Instituto Gastromoda</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        *{
+                   margin: 0;
+                   padding: 0;
+                   box-sizing: border-box;
+                   font-family: Arial, sans-serif;
+                      }
+                   
+         * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       
+       body {
+                   margin: 0;
+                   padding: 0;
+                   background-color: black;
+               }
+       
+               .navbar {
+                   background-color: black;
+                   color: white;
+                   padding: 0.5; /* Eliminado el padding */
+                   position: fixed;
+                   width: 100%;
+                   z-index: 1000;
+                   top: 0; /* Asegura que esté pegado arriba */
+               }
+       
+       
+       .nav-container {
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 0 1rem;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           height: 80px; /* Altura fija para el contenedor */
+       }
+       /* Logo */
+       .logo {
+           display: flex;
+           align-items: center;
+       }
+       
+       .logo-image {
+           height: 60px; /* Ajusta según el tamaño de tu logo */
+           width: auto;
+       }
+       
+       /* Menú Desktop */
+       .menu-desktop {
+           display: none;
+       }
+       
+       @media (min-width: 1024px) {
+           .menu-desktop {
+               display: flex;
+               align-items: center;
+               gap: 3 rem; /* Aumentado el espaciado entre elementos */
+               height: 60px; /* Altura fija para el menú */
+           }
+       }
+       
+       .menu-item {
+           color: rgb(255, 255, 255);
+           text-decoration: none;
+           font-size: 0.875rem;
+           transition: color 0.3s;
+           padding: 1rem 0.5rem; /* Añadido padding vertical y horizontal */
+           display: flex;
+           align-items: center;
+           height: 100%; /* Ocupa toda la altura del contenedor */
+           position: relative; /* Para efectos hover si deseas añadirlos después */
+       }
+       
+       .menu-item:hover {
+           color: #FF6B00;
+           
+       }
+       /* Botón menú móvil */
+       .menu-button {
+           display: flex;
+           flex-direction: column;
+           gap: 0.25rem;
+           background: none;
+           border: none;
+           cursor: pointer;
+           padding: 0rem;
+       }
+       
+       @media (min-width: 1024px) {
+           .menu-button {
+               display: none;
+           }
+       }
+       
+       .menu-button span {
+           display: block;
+           width: 1.5rem;
+           height: 2px;
+           background-color: white;
+       }
+       
+       /* Menú móvil */
+       .menu-mobile {
+           position: fixed;
+           inset: 0;
+           background-color: black;
+           z-index: 2000;
+           padding: 1.5rem;
+           display: none;
+       }
+       
+       .menu-mobile.active {
+           display: block;
+       }
+       
+       .mobile-menu-header {
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           margin-bottom: 2rem;
+       }
+       
+       .close-button {
+           background: none;
+           border: none;
+           color: white;
+           font-size: 1.5rem;
+           cursor: pointer;
+       }
+       
+       .mobile-menu-items {
+           display: flex;
+           flex-direction: column;
+           gap: 1.5rem;
+       }
+       
+       .hero {
+            position: relative;
+            height: 60vh;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('imagenes/Recurso\ 163.png') center/cover;
+            filter: brightness(0.6);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centrado horizontal */
+            padding: 0 5%;
+            animation: fadeInUp 1.5s ease-out 0.5s backwards;
+        }
+
+        .title-image {
+            max-width: 80%;
+            height: auto;
+            animation: fadeInUp 1.5s ease-out 0.5s backwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+</style>
+<body>
+    <div class="container">
+        <!-- Barra de navegación -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="imagenes/logo.png" alt="Logo Gastromoda" class="logo-image">
+                </div>
+
+                <!-- Menú Desktop -->
+                <div class="menu-desktop">
+                    <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                    <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                    <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                    <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                    <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                    <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                    <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+                </div>
+
+                <!-- Botón menú móvil -->
+                <button class="menu-button" id="menuButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menú móvil -->
+        <div class="menu-mobile" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <button class="close-button" id="closeButton">✕</button>
+            </div>
+            <div class="mobile-menu-items">
+                <a href="Instituto Gastromoda.html" class="menu-item">INICIO</a>
+                <a href="Mas sobre nosotros.html" class="menu-item">MÁS SOBRE NOSOTROS</a>
+                <a href="Gastronomia.html" class="menu-item">GASTRONOMÍA</a>
+                <a href="Diseño de modas.html" class="menu-item">DISEÑO DE MODAS</a>
+                <a href="Capacitaciones.html" class="menu-item">CAPACITACIONES</a>
+                <a href="Talleres Especiales.html" class="menu-item">TALLERES ESPECIALES</a>
+                <a href="Convenios y pasantias.html" class="menu-item">CONVENIOS Y PASANTÍAS</a>
+            </div>
+        </div>
+        <section class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <img src="imagenes/Recurso 164.png" alt="Convenios y Pasantías" class="title-image">
+            </div>
+        </section>
+        <script>
+            document.querySelector('.menu-button').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+        </script>
+        <script src="script.js"></script>
+        <br>
+        <style>
+            .gastronomia-banner-2024 {
+                background: linear-gradient(135deg, #fd6208, #000000);
+                max-width: 900px;
+                margin: 20px auto;
+                border-radius: 20px;
+                position: relative;
+                overflow: hidden;
+                color: white;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            }
+            
+            .gastronomia-banner-2024::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                left: -50%;
+                width: 200%;
+                height: 200%;
+                background: radial-gradient(circle, rgba(255,107,0,0.1) 0%, rgba(255,107,0,0) 50%);
+                animation: rotate 15s linear infinite;
+            }
+            
+            @keyframes rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            
+            .gastronomia-banner-2024 * {
+                box-sizing: border-box;
+            }
+            
+            .gastro-banner-content {
+                position: relative;
+                display: flex;
+                padding: 30px;
+                gap: 30px;
+                background: linear-gradient(135deg, rgba(255,107,0,0.1), transparent);
+                backdrop-filter: blur(5px);
+            }
+            
+            .gastro-banner-text {
+                flex: 2;
+                position: relative;
+                z-index: 2;
+            }
+            
+            .gastro-banner-title {
+                font-size: 24px;
+                font-weight: bold;
+                color: #ffffff;
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                position: relative;
+                display: inline-block;
+            }
+            .gastro-banner-subtitle {
+                font-size: 38px;
+                font-family: 'Brush Script MT', cursive;
+                color: white;
+                margin: 10px 0;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            }
+            
+            .gastro-banner-description {
+                font-size: 14px;
+                line-height: 1.6;
+                color: #e0e0e0;
+                text-align: justify;
+                margin: 0;
+                position: relative;
+            }
+            
+            .gastro-banner-logo {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+            }
+            
+            .gastro-logo-image {
+                width: 140px;
+                height: auto;
+                filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+                transition: transform 0.3s ease;
+            }
+            
+            .gastro-logo-image:hover {
+                transform: scale(1.05);
+            }
+            
+            .gastro-decorative-element {
+                position: absolute;
+                width: 150px;
+                height: 150px;
+                border: 2px solid rgba(255, 106, 0, 0.1);
+                border-radius: 20px;
+                transform: rotate(45deg);
+                right: -75px;
+                top: -75px;
+            }
+            
+            @media (max-width: 768px) {
+                .gastro-banner-content {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 50px;
+                }
+                
+                .gastro-banner-title::after {
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                
+                .gastro-banner-description {
+                    text-align: center;
+                }
+                
+                .gastro-logo-image {
+                    width: 100px;
+                }
+            }
+            
+            /* Animaciones de entrada */
+            .gastronomia-banner-2024 {
+                opacity: 0;
+                transform: translateY(20px);
+                animation: fadeInUp 0.8s ease forwards;
+            }
+            
+            .gastro-banner-text {
+                opacity: 0;
+                transform: translateX(-20px);
+                animation: fadeInLeft 0.8s ease forwards 0.3s;
+            }
+            
+            .gastro-banner-logo {
+                opacity: 0;
+                transform: translateX(20px);
+                animation: fadeInRight 0.8s ease forwards 0.6s;
+            }
+            
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes fadeInLeft {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            
+            @keyframes fadeInRight {
+                to {
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            /* Animación al hacer scroll */
+            .gastronomia-banner-2024.scroll-animate {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .gastronomia-banner-2024.scroll-animate.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .decorative-shape {
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 50%;
+                    z-index: 0;
+                }
+                
+                .shape-1 {
+                    width: 100px;
+                    height: 100px;
+                    top: -20px;
+                    left: -20px;
+                }
+                
+                .shape-2 {
+                    width: 150px;
+                    height: 150px;
+                    bottom: -40px;
+                    right: -40px;
+                }
+                
+                @media (max-width: 768px) {
+                    .gastronomia-banner-2024 {
+                        padding: 25px;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-content {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-text {
+                        padding-right: 0;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-logo {
+                        margin: 0 auto;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-description {
+                        text-align: justify;
+                        margin: 0 auto;
+                    }
+                }.gastronomia-banner-2024 {
+                    background: linear-gradient(135deg, #ff6b00, #ff8533, #ff4d00);
+                    padding: 30px 40px;
+                    width: 90%;
+                    max-width: 900px;
+                    margin: 20px auto;
+                    border-radius: 20px;
+                    position: relative;
+                    overflow: hidden;
+                    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.2);
+                    opacity: 0;
+                    transform: translateY(30px);
+                    animation: fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+                }
+                
+                .gastronomia-banner-2024::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+                    pointer-events: none;
+                }
+                
+                .gastronomia-banner-2024 * {
+                    box-sizing: border-box;
+                }
+                
+                @keyframes fadeInUp {
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                
+                .gastronomia-banner-2024 .gastro-banner-content {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 30px;
+                    position: relative;
+                }
+                
+                .gastronomia-banner-2024 .gastro-banner-text {
+                    flex: 2;
+                    opacity: 0;
+                    transform: translateX(-30px);
+                    animation: fadeInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.3s;
+                }
+                
+                @keyframes fadeInLeft {
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                
+                .gastronomia-banner-2024 .gastro-banner-title {
+                    font-size: 28px;
+                    font-weight: 800;
+                    margin-bottom: 5px;
+                    color: #fff;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                }
+                
+                .gastronomia-banner-2024 .gastro-banner-subtitle {
+                    font-size: 90px;
+                    font-family: 'Brush Script MT', cursive;
+                    color: #fff;
+                    margin-bottom: 15px;
+                    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+                }
+                
+                .gastronomia-banner-2024 .gastro-banner-description {
+                    font-size: 15px;
+                    line-height: 1.6;
+                    color: #fff;
+                    text-align: justify;
+                    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 15px;
+                    border-radius: 12px;
+                    backdrop-filter: blur(5px);
+                }
+                
+                .gastronomia-banner-2024 .gastro-banner-logo {
+                    flex: 1;
+                    max-width: 160px;
+                    opacity: 0;
+                    transform: translateX(30px);
+                    animation: fadeInRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.6s;
+                    background: rgba(255, 255, 255, 0.15);
+                    padding: 15px;
+                    border-radius: 15px;
+                    backdrop-filter: blur(5px);
+                }
+                
+                @keyframes fadeInRight {
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                
+                .gastronomia-banner-2024 .gastro-logo-image {
+                    width: 100%;
+                    height: auto;
+                    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.2));
+                }
+                
+                /* Animación al hacer scroll */
+                .gastronomia-banner-2024.scroll-animate {
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .gastronomia-banner-2024.scroll-animate.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .decorative-shape {
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 50%;
+                    z-index: 0;
+                }
+                
+                .shape-1 {
+                    width: 100px;
+                    height: 100px;
+                    top: -20px;
+                    left: -20px;
+                }
+                
+                .shape-2 {
+                    width: 150px;
+                    height: 150px;
+                    bottom: -40px;
+                    right: -40px;
+                }
+                
+                @media (max-width: 768px) {
+                    .gastronomia-banner-2024 {
+                        padding: 25px;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-content {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-text {
+                        padding-right: 0;
+                        margin-bottom: 20px;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-logo {
+                        margin: 0 auto;
+                    }
+                    
+                    .gastronomia-banner-2024 .gastro-banner-description {
+                        text-align: justify;
+                        margin: 0 auto;
+                    }
+                }
+            </style>
+            
+            <div class="gastronomia-banner-2024">
+                <div class="gastro-decorative-element"></div>
+                <div class="gastro-banner-content">
+                    <div class="gastro-banner-text">
+                        <h1 class="gastro-banner-title">¡Tenemos Convenio!</h1>
+                        <div class="gastro-banner-subtitle">Gastronomía</div>
+                        <p class="gastro-banner-description">
+                            ¿Sueñas con convertir tu pasión por la cocina en una carrera exitosa? En Gastromoda te ofrecemos la formación técnica superior en gastronomía que necesitas para destacar en el mundo culinario. Pero eso no es todo: gracias a nuestro convenio con la Universidad de los Andes, podrás complementar tus estudios y obtener un título de licenciatura, abriendo las puertas a un sin fin de oportunidades profesionales.
+                        </p>
+                    </div>
+                    <div class="gastro-banner-logo">
+                        <img src="imagenes/Recurso 184.png" alt="UNANDES Logo" class="gastro-logo-image">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <head>
+                <style>
+                    * {
+                        margin: 0;
+                        padding: 0;
+                        box-sizing: border-box;
+                    }
+            
+                    body {
+                        font-family: Arial, sans-serif;
+                    }
+            
+                    .experience-section {
+                        max-width: 1200px;
+                        margin: 0 auto;
+                        overflow: hidden;
+                    }
+            
+                    .banner-container {
+                        position: relative;
+                        margin-bottom: 20px;
+                        width: 100%;
+                        overflow: hidden;
+                    }
+            
+                    .banner-image {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+            
+                    .banner-text {
+                        position: absolute;
+                        top: 50%;
+                        left: 50px;
+                        transform: translateY(-50%);
+                        color: white;
+                        font-family: 'Arial Black', Arial, sans-serif;
+                        font-size: clamp(1.5rem, 4vw, 2.8rem);
+                        font-weight: 900;
+                        line-height: 1.2;
+                        max-width: 90%;
+                        opacity: 0;
+                        transition: all 1.5s ease;
+                        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+                        padding-right: 20px;
+                    }
+            
+                    .experience-content {
+                        display: flex;
+                        gap: 2rem;
+                        padding: 0 20px;
+                        margin-bottom: 2rem;
+                    }
+            
+                    .experience-map {
+                        flex: 1;
+                        transform: translateY(30px);
+                        opacity: 0;
+                        transition: all 1.5s ease;
+                    }
+            
+                    .experience-map img {
+                        width: 100%;
+                        height: auto;
+                        display: block;
+                    }
+            
+                    .experience-info {
+                        flex: 1;
+                        transform: translateY(30px);
+                        opacity: 0;
+                        transition: all 1.5s ease;
+                        transition-delay: 0.3s;
+                    }
+            
+                    .experience-card {
+                        background-color: #fd6208;
+                        color: white;
+                        padding: 1.5rem;
+                        border-radius: 6px;
+                        margin-bottom: 1.5rem;
+                        font-size: clamp(0.9rem, 2vw, 1.1rem);
+                        line-height: 1.4;
+                    }
+            
+                    .experience-benefits {
+                        display: flex;
+                        justify-content: center;
+                        gap: clamp(2rem, 4vw, 4rem);
+                        margin-top: 2rem;
+                        flex-wrap: wrap;
+                    }
+            
+                    .benefit-item {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 0.5rem;
+                    }
+            
+                    .benefit-icon {
+                        width: 60px;
+                        height: 60px;
+                        object-fit: contain;
+                    }
+            
+                    .benefit-text {
+                        font-family: 'Arial Black', Arial, sans-serif;
+                        font-size: clamp(1rem, 2vw, 1.2rem);
+                        color: #ffffff;
+                        text-align: center;
+                        font-weight: 700;
+                    }
+            
+                    .visible {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+            
+                    @media (max-width: 768px) {
+                        .experience-content {
+                            flex-direction: column;
+                        }
+            
+                        .banner-text {
+                            left: 20px;
+                            padding-right: 20px;
+                        }
+            
+                        .experience-benefits {
+                            gap: 2rem;
+                        }
+                    }
+            
+                    @media (max-width: 480px) {
+                        .banner-text {
+                            left: 15px;
+                            padding-right: 15px;
+                        }
+            
+                        .experience-content {
+                            padding: 0 15px;
+                        }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="experience-section">
+                    <div class="banner-container">
+                        <img src="imagenes/Recurso 180.png" alt="Banner" class="banner-image">
+                        <h1 class="banner-text">Gana experiencia nacional e Internacionalmente</h1>
+                    </div>
+            
+                    <div class="experience-content">
+                        <div class="experience-map">
+                            <img src="imagenes/Recurso 181_1.png" alt="World Map">
+                        </div>
+                        
+                        <div class="experience-info">
+                            <div class="experience-card">
+                                El Instituto Gastromoda, en colaboración con Animafets te ofrece la oportunidad de realizar prácticas en España. Aprende nuevas técnicas culinarias y vive una inmersión cultural completa. ¡Regresa a casa como un chef más completo y con una visión global de la gastronomía!
+                            </div>
+                            
+                            <div class="experience-benefits">
+                                <div class="benefit-item">
+                                    <img src="imagenes/Recurso 182.png" alt="Beca Icon" class="benefit-icon">
+                                    <span class="benefit-text">Beca</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <img src="imagenes/Recurso 183.png" alt="Alojamiento Icon" class="benefit-icon">
+                                    <span class="benefit-text">Alojamiento gratuito</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <script>
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                            }
+                        });
+                    }, { 
+                        threshold: 0.2,
+                        rootMargin: '0px'
+                    });
+            
+                    document.querySelectorAll('.banner-text, .experience-map, .experience-info').forEach((el) => {
+                        observer.observe(el);
+                    });
+                </script>
+            </body>
+              <style>
+                body {
+                  margin: 0;
+                  padding: 0;
+                  font-family: Arial, sans-serif;
+                  background-color: #000;
+                  color: white;
+                }
+            
+                .info-sections {
+                  background-color: #000;
+                  color: white;
+                  padding: 2rem 0;
+                }
+            
+                .schedule-section {
+                  max-width: 800px;
+                  margin: 0 auto;
+                  text-align: center;
+                  padding: 2rem 0;
+                  background-color: #000;
+                }
+            
+                .schedule-title {
+                  display: inline-block;
+                  border: 2px solid white;
+                  padding: 1rem 2rem;
+                  margin-bottom: 2rem;
+                  text-transform: uppercase;
+                  font-weight: bold;
+                }
+            
+                .schedule-table {
+                  width: 100%;
+                  border-collapse: collapse;
+                  margin: 0 auto;
+                }
+            
+                .schedule-table th,
+                .schedule-table td {
+                  padding: 0.5rem;
+                  text-align: center;
+                  border: none;
+                }
+            
+                .contacts-section {
+                  text-align: center;
+                  padding: 2rem 0;
+                  background-color: #000;
+                }
+            
+                .contacts-title {
+                  display: inline-block;
+                  border: 2px solid white;
+                  padding: 1rem 2rem;
+                  margin-bottom: 2rem;
+                  text-transform: uppercase;
+                  font-weight: bold;
+                }
+            
+                .contact-info {
+                  font-size: 1.1rem;
+                  line-height: 1.8;
+                }
+            
+                .carousel-container {
+                  width: 100%;
+                  overflow: hidden;
+                  position: relative;
+                  padding: 2rem 0;
+                }
+            
+                .carousel-track {
+                  display: flex;
+                  gap: 10px;
+                  animation: scroll 25s linear infinite;
+                }
+            
+                .carousel-slide {
+                  flex: 0 0 auto;
+                  border-radius: 12px;
+                }
+            
+                .carousel-slide img {
+                  width: 150px;
+                  height: 300px;
+                  object-fit: cover;
+                  border-radius: 12px;
+                }
+            
+                @keyframes scroll {
+                  0% {
+                    transform: translateX(0);
+                  }
+                  100% {
+                    transform: translateX(-50%);
+                  }
+                }
+            
+                .carousel-track:hover {
+                  animation-play-state: paused;
+                }
+            
+                @media (max-width: 768px) {
+                  .schedule-table {
+                    font-size: 5rem;
+                  }
+                  .contact-info {
+                    font-size: 1rem;
+                    padding: 0 1rem;
+                  }
+                }
+              </style>
+            </head>
+            <section class="info-sections">
+              <div class="carousel-container">
+                <div class="carousel-track">
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 190.png" alt="Diseño de modas">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 191.png" alt="Gastronomía">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 192.png" alt="Desfile">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 193.png" alt="Plato">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 194.png" alt="Vestido">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 195.png" alt="Chef">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 196.png" alt="Diseño">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 197.png" alt="Cocina">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 190.png" alt="Diseño de modas">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 191.png" alt="Gastronomía">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 192.png" alt="Desfile">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 193.png" alt="Plato">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 194.png" alt="Vestido">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 195.png" alt="Chef">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 196.png" alt="Diseño">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="imagenes/Recurso 197.png" alt="Cocina">
+                  </div>
+                </div>
+              </div>
+            </section>
+            <style>
+                /* Estilos base compartidos */
+                .section-base {
+                    background-color: black;
+                    color: white;
+                    margin: 0;
+                    width: 100%;
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .section-base.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Estilos para la sección de horarios */
+                .schedule-section {
+                    padding: 2rem 1rem;
+                    text-align: center;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    background-color: black;
+                    color: white;
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .schedule-section.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .schedule-title {
+                    font-size: clamp(1.2rem, 3vw, 1.5rem);
+                    margin-bottom: 1.5rem;
+                    padding: 0.5rem 1rem;
+                    display: inline-block;
+                    border: 1px solid white;
+                    text-transform: uppercase;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+                }
+                
+                .schedule-title.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .schedule-table {
+                    width: 100%;
+                    border-collapse: separate;
+                    border-spacing: 0;
+                    margin: 0 auto;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+                }
+                
+                .schedule-table.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .schedule-table th,
+                .schedule-table td {
+                    padding: 0.75rem 1rem;
+                    text-align: center;
+                    position: relative;
+                    color: white;
+                }
+                
+                .schedule-table th {
+                    text-align: center;
+                }
+                
+                .schedule-table td:first-child {
+                    text-align: center;
+                    border-right: 2px solid white;
+                }
+                
+                .schedule-table td:nth-child(2) {
+                    border-right: 2px solid white;
+                }
+                
+                /* Estilos para la sección de contactos */
+                .contacts-section {
+                    background-color: black;
+                    color: white;
+                    padding: 2rem 1rem;
+                    text-align: center;
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .contacts-section.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .contacts-title {
+                    font-size: clamp(1.2rem, 3vw, 1.5rem);
+                    margin-bottom: 1.5rem;
+                    padding: 0.5rem 1rem;
+                    display: inline-block;
+                    border: 1px solid white;
+                    text-transform: uppercase;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+                }
+                
+                .contacts-title.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .contact-info {
+                    font-size: clamp(0.875rem, 2vw, 1rem);
+                    line-height: 1.6;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+                }
+                
+                .contact-info.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                /* Estilos para las secciones de ubicaciones */
+                .locations-section {
+                    background-color: black;
+                    padding: 2rem 0;
+                    opacity: 0;
+                    transform: translateY(30px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                }
+                
+                .locations-section.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .locations-container {
+                    max-width: 900px;
+                    margin: 0 auto;
+                    padding: 0 1rem;
+                }
+                
+                .section-title {
+                    text-align: center;
+                    border: 1px solid white;
+                    padding: 0.5rem 1.5rem;
+                    margin: 1rem auto 2rem;
+                    font-size: clamp(1rem, 3vw, 1.2rem);
+                    display: inline-block;
+                    position: relative;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    border-radius: 8px;
+                    opacity: 0;
+                    transition: opacity 0.6s ease 0.2s;
+                    color: white;
+                }
+                
+                .section-title.visible {
+                    opacity: 1;
+                }
+                
+                .locations-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 2rem;
+                    margin: 0 auto;
+                    padding: 0 1rem;
+                }
+                
+                .location-card {
+                    width: 100%;
+                    max-width: 350px;
+                    margin: 0 auto;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease, transform 0.6s ease;
+                    color: white;
+                }
+                
+                .location-card.visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+                
+                .location-card img {
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 16/9;
+                    object-fit: cover;
+                    border-radius: 12px;
+                    transition: transform 0.3s ease;
+                    background-color: black;
+                }
+                
+                .location-card img:hover {
+                    transform: scale(1.05);
+                }
+                
+                .location-info {
+                    text-transform: uppercase;
+                    font-size: clamp(0.75rem, 2vw, 0.875rem);
+                    line-height: 1.4;
+                    text-align: center;
+                    padding: 1rem 0;
+                    color: white;
+                }
+                
+                .sede-title {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                
+                /* Divisor entre secciones */
+                .section-divider {
+                    height: 1px;
+                    background: linear-gradient(to right, transparent, #ffffff50, transparent);
+                    margin: 1rem 0;
+                    max-width: 100%;
+                }
+                
+                /* Media queries */
+                @media (max-width: 768px) {
+                    .schedule-section,
+                    .locations-section {
+                        padding: 1.5rem 0.5rem;
+                    }
+                
+                    .locations-grid {
+                        gap: 1.5rem;
+                    }
+                
+                    .schedule-table th,
+                    .schedule-table td {
+                        padding: 0.5rem;
+                        font-size: 0.9rem;
+                    }
+                }
+                
+                @media (max-width: 480px) {
+                    .schedule-section,
+                    .locations-section {
+                        padding: 1rem 0.25rem;
+                    }
+                
+                    .locations-grid {
+                        gap: 1rem;
+                    }
+                
+                    .location-card img {
+                        border-radius: 8px;
+                    }
+                
+                    .schedule-table th,
+                    .schedule-table td {
+                        padding: 0.25rem;
+                        font-size: 0.8rem;
+                    }
+                }
+                </style>
+                
+                <script>
+                window.addEventListener('DOMContentLoaded', () => {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                                
+                                // Para la sección de horarios
+                                if (entry.target.classList.contains('schedule-section')) {
+                                    const title = entry.target.querySelector('.schedule-title');
+                                    const table = entry.target.querySelector('.schedule-table');
+                                    
+                                    if (title) title.classList.add('visible');
+                                    if (table) table.classList.add('visible');
+                                }
+                                
+                                // Para la sección de contactos
+                                if (entry.target.classList.contains('contacts-section')) {
+                                    const title = entry.target.querySelector('.contacts-title');
+                                    const info = entry.target.querySelector('.contact-info');
+                                    
+                                    if (title) title.classList.add('visible');
+                                    if (info) info.classList.add('visible');
+                                }
+                                
+                                // Para las secciones de ubicaciones
+                                if (entry.target.classList.contains('locations-section')) {
+                                    const title = entry.target.querySelector('.section-title');
+                                    const cards = entry.target.querySelectorAll('.location-card');
+                                    
+                                    if (title) title.classList.add('visible');
+                                    
+                                    cards.forEach((card, index) => {
+                                        setTimeout(() => {
+                                            card.classList.add('visible');
+                                        }, index * 200);
+                                    });
+                                }
+                            }
+                        });
+                    }, {
+                        threshold: 0.1
+                    });
+                
+                    // Observar todas las secciones
+                    document.querySelectorAll('.schedule-section, .contacts-section, .locations-section').forEach(section => {
+                        observer.observe(section);
+                    });
+                });
+                </script>
+                </head>
+                <body>
+                    <section class="schedule-section">
+                        <h2 class="schedule-title">NUESTROS HORARIOS DE ATENCIÓN</h2>
+                        <table class="schedule-table">
+                            <thead>
+                                <tr>
+                                    <th>DIA</th>
+                                    <th>MAÑANA</th>
+                                    <th>TARDE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>LUNES</td>
+                                    <td>08:30-12:30</td>
+                                    <td>14:30-18:30</td>
+                                </tr>
+                                <tr>
+                                    <td>MARTES</td>
+                                    <td>08:30-12:30</td>
+                                    <td>14:30-18:30</td>
+                                </tr>
+                                <tr>
+                                    <td>MIÉRCOLES</td>
+                                    <td>08:30-12:30</td>
+                                    <td>14:30-18:30</td>
+                                </tr>
+                                <tr>
+                                    <td>JUEVES</td>
+                                    <td>08:30-12:30</td>
+                                    <td>14:30-18:30</td>
+                                </tr>
+                                <tr>
+                                    <td>VIERNES</td>
+                                    <td>08:30-12:30</td>
+                                    <td>14:30-18:30</td>
+                                </tr>
+                                <tr>
+                                    <td>SÁBADO</td>
+                                    <td>08:30-12:30</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                
+                    <section class="contacts-section">
+                        <h2 class="contacts-title">CONTACTOS</h2>
+                        <div class="contact-info">
+                            <p>Dirección: Sopocachi Calle Méndez Arcos</p>
+                            <p>#758 entre el Teleférico Amarillo y plaza España</p>
+                            <p>Correo:</p>
+                            <p>Teléfono: 69747992</p>
+                        </div>
+                    </section>
+                
+                    <!-- Sección de Diseño de Modas -->
+                    <section class="locations-section">
+                        <div class="locations-container">
+                            <div class="section-title">
+                                SEDES DE DISEÑO DE MODAS
+                            </div>
+                            
+                            <div class="locations-grid">
+                                <div class="location-card">
+                                    <a href="https://maps.app.goo.gl/9LTr1NbuyK4Pfokh8">
+                                        <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                                    </a>
+                                    <div class="location-info">
+                                        <div class="sede-title">SEDE</div>
+                                        <div>LA PAZ</div>
+                                        <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                                        <div>TELÉFONO: 69743792</div>
+                                    </div>
+                                </div>
+                
+                                <div class="location-card">
+                                    <a href="https://maps.app.goo.gl/TDyjYvchQaV4zGwZ7">
+                                        <img src="imagenes/Recurso 19.png" alt="Mapa Cochabamba">
+                                    </a>
+                                    <div class="location-info">
+                                        <div class="sede-title">SEDE</div>
+                                        <div>COCHABAMBA</div>
+                                        <div>AVENIDA LIBERTADOR SIMÓN BOLÍVAR</div>
+                                        <div>TELÉFONO: 44528593</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                
+                    <div class="section-divider"></div>
+                
+                    <!-- Sección de Gastronomía -->
+                    <section class="locations-section">
+                        <div class="locations-container">
+                            <div class="section-title">
+                                SEDES DE GASTRONOMÍA
+                            </div>
+                            
+                            <div class="locations-grid">
+                                <div class="location-card">
+                                    <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                                        <img src="imagenes/Recurso 18.png" alt="Mapa La Paz">
+                                    </a>
+                                    <div class="location-info">
+                                        <div class="sede-title">SEDE</div>
+                                        <div>LA PAZ</div>
+                                        <div>CALLE MÉNDEZ ARCOS Nº758 ZONA SOPOCACHI</div>
+                                        <div>TELÉFONO: 69743792</div>
+                                    </div>
+                                </div>
+                
+                                <div class="location-card">
+                                    <a href="https://maps.app.goo.gl/4Loip9EgkKvCJZ1t5">
+                                        <img src="imagenes/Recurso 23.png" alt="Mapa Cochabamba">
+                                    </a>
+                                    <div class="location-info">
+                                        <div class="sede-title">SEDE</div>
+                                        <div>COCHABAMBA</div>
+                                        <div>CALLE CHUQUISACA #688</div>
+                                        <div>TELÉFONO: 4531043</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="locations-grid" style="margin-top: 2rem;">
+                                <div class="location-card">
+                                    <a href="https://maps.app.goo.gl/AVQMGeDqkirRYL6G7">
+                                        <img src="imagenes/Recurso 22.png" alt="Mapa Oruro">
+                                    </a>
+                                    <div class="location-info">
+                                        <div class="sede-title">SEDE</div>
+                                        <div>ORURO</div>
+                                        <div>CALLE 6 DE OCTUBRE</div>
+                                        <div>TELÉFONO: </div>
+                                    </div>
+                                </div>
+                
+                                <div class="location-card">
+                                    <a href="https://maps.app.goo.gl/qd7VrUZo8CPCoC53A">
+                                        <img src="imagenes/Recurso 24.png" alt="Mapa Potosí">
+                                    </a>
+                                    <div class="location-info">
+                                        <div class="sede-title">SEDE</div>
+                                        <div>POTOSI</div>
+                                        <div>CALLE Tarija 30, Villa Imperial de Potosí</div>
+                                        <div>TELÉFONO: 74289575</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <style>
+                        .social-bar {
+                            position: fixed;
+                            right: 20px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            display: flex;
+                            flex-direction: column;
+                            gap: 8px;
+                            background: white;
+                            padding: 8px;
+                            border-radius: 20px;
+                            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                            z-index: 9999;
+                            transition: opacity 0.3s ease;
+                        }
+                        
+                        .social-icon {
+                            width: 35px;
+                            height: 35px;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: white;
+                            text-decoration: none;
+                            transition: all 0.3s ease;
+                        }
+                        
+                        .social-icon:hover {
+                            transform: scale(1.1);
+                            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        }
+                        
+                        .facebook { background: #1877f2; }
+                        .instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+                        .tiktok { background: #000000; }
+                        .whatsapp { background: #25D366; }
+                        
+                        .social-icon i {
+                            font-size: 16px;
+                            color: white;
+                        }
+                        
+                        /* Ocultar la barra social cuando el menú móvil está activo */
+                        .menu-mobile.active ~ .social-bar {
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+                        
+                        /* Pantallas extra grandes (≥1400px) */
+                        @media screen and (min-width: 1400px) {
+                            .social-bar {
+                                right: 30px;
+                                padding: 10px;
+                            }
+                            .social-icon {
+                                width: 40px;
+                                height: 40px;
+                            }
+                            .social-icon i {
+                                font-size: 18px;
+                            }
+                        }
+                        
+                        /* Pantallas grandes (≥1200px) */
+                        @media screen and (max-width: 1200px) {
+                            .social-bar {
+                                right: 25px;
+                            }
+                            .social-icon {
+                                width: 35px;
+                                height: 35px;
+                            }
+                        }
+                        
+                        /* Pantallas medianas (≥992px) */
+                        @media screen and (max-width: 992px) {
+                            .social-bar {
+                                right: 20px;
+                                padding: 7px;
+                            }
+                            .social-icon {
+                                width: 32px;
+                                height: 32px;
+                            }
+                            .social-icon i {
+                                font-size: 15px;
+                            }
+                        }
+                        
+                        /* Tablets (≥768px) */
+                        @media screen and (max-width: 768px) {
+                            .social-bar {
+                                right: 15px;
+                                padding: 6px;
+                                z-index: 999;
+                            }
+                            .social-icon {
+                                width: 30px;
+                                height: 30px;
+                            }
+                            .social-icon i {
+                                font-size: 14px;
+                            }
+                        }
+                        
+                        /* Móviles grandes (≥576px) */
+                        @media screen and (max-width: 576px) {
+                            .social-bar {
+                                right: 10px;
+                                padding: 5px;
+                                gap: 6px;
+                            }
+                            .social-icon {
+                                width: 28px;
+                                height: 28px;
+                            }
+                            .social-icon i {
+                                font-size: 13px;
+                            }
+                        }
+                        
+                        /* Móviles pequeños (<400px) */
+                        @media screen and (max-width: 400px) {
+                            .social-bar {
+                                right: 8px;
+                                padding: 4px;
+                                gap: 5px;
+                            }
+                            .social-icon {
+                                width: 26px;
+                                height: 26px;
+                            }
+                            .social-icon i {
+                                font-size: 12px;
+                            }
+                        }
+                        
+                        /* Modo paisaje en móviles o pantallas muy bajas */
+                        @media screen and (max-height: 480px) {
+                            .social-bar {
+                                flex-direction: row;
+                                top: auto;
+                                bottom: 15px;
+                                right: 50%;
+                                transform: translateX(50%);
+                                padding: 5px;
+                            }
+                            .social-icon {
+                                width: 28px;
+                                height: 28px;
+                            }
+                        }
+                        
+                        /* Dispositivos muy pequeños en modo paisaje */
+                        @media screen and (max-height: 350px) {
+                            .social-bar {
+                                bottom: 10px;
+                                padding: 4px;
+                                gap: 5px;
+                            }
+                            .social-icon {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                        </style>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+                </head>
+                <body>
+                    <div class="social-bar">
+                        <a href="https://www.facebook.com/p/Instituto-Tecnol%C3%B3gico-Superior-en-Gastromoda-61553427907166/" class="social-icon facebook" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/instituto_gastromoda" class="social-icon instagram" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@gastromoda.instit?is_from_webapp=1&sender_device=pc" class="social-icon tiktok" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://wa.link/pxobem" class="social-icon whatsapp" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </body>
+                </html>
